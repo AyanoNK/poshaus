@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import Link from "../components/react/Link";
+import Link from "../components/Link.astro";
+import SocialLink from "../components/SocialLink.astro";
 ---
 
 <Layout title="Poshaus">
@@ -14,30 +14,31 @@ import Link from "../components/react/Link";
       allow="autoplay; fullscreen"
       allowfullscreen></iframe>
   </div>
-  <main>
-    <div class="container">
+  <main id="container">
+    <div class="content">
       <h1><span class="text-gradient">Poshaus</span></h1>
       <div id="links">
-        <Card
-          href="https://docs.astro.build/"
-          title="Documentation"
-          body="Learn how Astro works and explore the official API docs."
-        />
-        <Card
-          href="https://astro.build/integrations/"
-          title="Integrations"
-          body="Supercharge your project with new frameworks and libraries."
-        />
-        <Card
-          href="https://astro.build/themes/"
-          title="Themes"
-          body="Explore a galaxy of community-built starter themes."
-        />
-        <Card
-          href="https://astro.build/chat/"
-          title="Chat"
-          body="Come say hi to our amazing Discord community. ❤️"
-        />
+        <Link href="#" title="Qué" />
+        <Link href="#" title="Mondás" />
+        <Link href="#" title="Pongo" />
+        <Link href="#" title="Acá" />
+        <div id="social">
+          <SocialLink
+            href="https://www.instagram.com/poshaus/"
+            svg="/svg/instagram.svg"
+            alt="Instagram"
+          />
+          <SocialLink
+            href="https://www.instagram.com/poshaus/"
+            svg="/svg/instagram.svg"
+            alt="Instagram"
+          />
+          <SocialLink
+            href="https://www.instagram.com/poshaus/"
+            svg="/svg/instagram.svg"
+            alt="Instagram"
+          />
+        </div>
       </div>
     </div>
   </main>
@@ -54,8 +55,8 @@ import Link from "../components/react/Link";
 
   main {
     display: flex;
+    align-items: center;
     justify-content: center;
-    margin: 20px -0;
     min-height: 100vh;
     width: 100%;
   }
@@ -82,8 +83,16 @@ import Link from "../components/react/Link";
     transform: translate(-50%, -50%);
   }
 
-  .container {
-    padding: 20px;
+  #social {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .text-gradient {
@@ -105,28 +114,5 @@ import Link from "../components/react/Link";
     50% {
       background-position-y: 80%;
     }
-  }
-
-  .instructions {
-    line-height: 1.6;
-    margin: 1rem 0;
-    background: #4f39fa;
-    padding: 1rem;
-    border-radius: 0.4rem;
-    color: var(--color-bg);
-  }
-
-  .instructions code {
-    font-size: 0.875em;
-    border: 0.1em solid var(--color-border);
-    border-radius: 4px;
-    padding: 0.15em 0.25em;
-  }
-
-  .link-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 1rem;
-    padding: 0;
   }
 </style>

@@ -1,0 +1,44 @@
+---
+export interface Props {
+  title: string;
+  href: string;
+}
+
+const { href, title } = Astro.props as Props;
+---
+
+<a href={href} class="link-card">
+  {title}
+  <style>
+    :root {
+      --link-gradient: linear-gradient(
+        45deg,
+        #4f39fa,
+        #da62c4 30%,
+        var(--color-border) 60%
+      );
+    }
+
+    .link-card {
+      display: block;
+      background-color: transparent;
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 0.25rem;
+      padding: 0.25rem 0.5rem;
+      text-decoration: none;
+      font-size: 2rem;
+      font-weight: bold;
+      transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99);
+      border: solid #ffffff 1px;
+    }
+
+    .link-card:is(:hover, :focus-within) {
+      background-position: 0;
+      background-color: #ffffff;
+      color: #4f39fa;
+      will-change: transform;
+      transform: translateX(0.125rem);
+    }
+  </style>
+</a>
