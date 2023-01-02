@@ -5,11 +5,11 @@ export interface Props {
   alt: string;
 }
 
-const { href, svg, alt } = Astro.props as Props;
+const { href, svg, alt, ...props } = Astro.props as Props;
 ---
 
-<a href={href} class="social-card">
-  <img src={svg} alt={alt} />
+<a href={href} class="social-card" target="_blank">
+  <img src={svg} alt={alt} {...props} />
 </a>
 <style>
   :root {
@@ -38,7 +38,7 @@ const { href, svg, alt } = Astro.props as Props;
     margin-right: 0.25rem;
   }
 
-  .social-card:is(:hover, :focus-within) {
+  .social-card:is(:hover) {
     background-position: 0;
     background-color: #ffffff;
     color: #4f39fa;
