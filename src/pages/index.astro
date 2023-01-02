@@ -6,14 +6,10 @@ import SocialLink from "../components/SocialLink.astro";
 
 <Layout title="Poshaus">
   <div id="vimeo_background">
-    <!-- might need to https://developer.chrome.com/blog/autoplay/ -->
-    <iframe
-      src="https://player.vimeo.com/video/785797372?h=d14d9e1f89&background=1&autoplay=1&loop=1&autopause=0"
-      width="640"
-      height="360"
-      frameborder="0"
-      allow="autoplay; fullscreen"
-      allowfullscreen></iframe>
+    <video width="640" height="360" autoplay muted loop>
+      <source src="/video/video.webm" type="video/webm" />
+      <source src="/video/video.mp4" type="video/mp4" />
+    </video>
   </div>
   <main id="container">
     <div class="content">
@@ -57,6 +53,7 @@ import SocialLink from "../components/SocialLink.astro";
 
   #logo {
     margin: 2rem 0;
+    width: 100%;
   }
 
   main {
@@ -78,7 +75,7 @@ import SocialLink from "../components/SocialLink.astro";
     z-index: -1;
   }
 
-  #vimeo_background iframe {
+  #vimeo_background video {
     width: 100vw;
     height: 56.25vw;
     min-height: 150vh;
