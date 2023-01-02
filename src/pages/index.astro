@@ -6,8 +6,9 @@ import SocialLink from "../components/SocialLink.astro";
 
 <Layout title="Poshaus">
   <div id="vimeo_background">
+    <!-- might need to https://developer.chrome.com/blog/autoplay/ -->
     <iframe
-      src="https://player.vimeo.com/video/717630834?h=1a685515ce&background=1"
+      src="https://player.vimeo.com/video/785797372?h=d14d9e1f89&background=1&autoplay=1&loop=1&autopause=0"
       width="640"
       height="360"
       frameborder="0"
@@ -16,27 +17,32 @@ import SocialLink from "../components/SocialLink.astro";
   </div>
   <main id="container">
     <div class="content">
-      <h1><span class="text-gradient">Poshaus</span></h1>
+      <img src="/svg/logo.svg" alt="Poshaus" id="logo" />
       <div id="links">
-        <Link href="#" title="Qué" />
-        <Link href="#" title="Mondás" />
-        <Link href="#" title="Pongo" />
-        <Link href="#" title="Acá" />
+        <Link href="#" title="Illustration" />
+        <Link href="#" title="Tattoo designs" />
+        <Link href="#" title="Other" />
+        <Link href="#" title="Store" />
         <div id="social">
           <SocialLink
             href="https://www.instagram.com/poshaus/"
             svg="/svg/instagram.svg"
-            alt="Instagram"
+            alt="instagram"
           />
           <SocialLink
             href="https://www.instagram.com/poshaus/"
-            svg="/svg/instagram.svg"
-            alt="Instagram"
+            svg="/svg/behance.svg"
+            alt="behance"
           />
           <SocialLink
             href="https://www.instagram.com/poshaus/"
-            svg="/svg/instagram.svg"
-            alt="Instagram"
+            svg="/svg/twitter.svg"
+            alt="twitter"
+          />
+          <SocialLink
+            href="https://www.instagram.com/poshaus/"
+            svg="/svg/email.svg"
+            alt="email"
           />
         </div>
       </div>
@@ -49,7 +55,7 @@ import SocialLink from "../components/SocialLink.astro";
     --astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
   }
 
-  h1 {
+  #logo {
     margin: 2rem 0;
   }
 
@@ -75,8 +81,8 @@ import SocialLink from "../components/SocialLink.astro";
   #vimeo_background iframe {
     width: 100vw;
     height: 56.25vw;
-    min-height: 100vh;
-    min-width: 177.77vh;
+    min-height: 150vh;
+    min-width: 227.77vh;
     position: absolute;
     top: 50%;
     left: 50%;

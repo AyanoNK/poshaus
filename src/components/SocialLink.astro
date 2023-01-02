@@ -14,6 +14,12 @@ const { href, svg, alt } = Astro.props as Props;
 <style>
   :root {
     --link-gradient: scale(1.05);
+    --square-rem: 4rem;
+  }
+
+  img {
+    width: var(--square-rem);
+    height: var(--square-rem);
   }
 
   .social-card {
@@ -28,8 +34,8 @@ const { href, svg, alt } = Astro.props as Props;
     border: solid #ffffff 1px;
   }
 
-  .social-card:not(:first-child):not(:last-child) {
-    margin: 0 0.25rem;
+  .social-card:not(:last-child) {
+    margin-right: 0.25rem;
   }
 
   .social-card:is(:hover, :focus-within) {
