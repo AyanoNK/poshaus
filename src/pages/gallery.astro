@@ -1,0 +1,100 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const rows = [
+  ["agua1.png", "agua2.png", "agua3.png", "agua4.png"],
+  [
+    "medusa_colores.png",
+    "virgo_the_virrgin.jpg",
+    "woman_3d_instagram_post.jpg",
+    "nena_cabeza_con_pajaroschitui.png",
+    "ejercicio_mika_pikazo",
+    "nena_cyberpunk_estulo_mio1.png",
+  ],
+  [
+    "predator.jpg",
+    "fondo_agua.png",
+    "quicksketches_cuerpos_juntos.png",
+    "joshua_spiderverse.png",
+    "haku_2.png",
+    "buho_no_face_hipster.png",
+  ],
+];
+---
+
+<Layout title="Poshaus">
+  <main id="container">
+    <div class="grid">
+      {
+        rows.map((column) => (
+          <div class="column">
+            {column.map((image) => (
+              <div class="image-container">
+                <img src={`/img/illustrations/${image}`} class="image" />
+              </div>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+  </main>
+</Layout>
+
+<style>
+  :root {
+  }
+
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+  }
+
+  .grid {
+    background-color: gray;
+    width: 100%;
+    margin: 1rem auto;
+    display: grid;
+    justify-items: center;
+    grid-gap: 1rem;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #aaa;
+  }
+
+  @media (min-width: 0px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (min-width: 576px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (min-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  .image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .image {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+</style>

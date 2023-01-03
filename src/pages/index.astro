@@ -2,6 +2,25 @@
 import Layout from "../layouts/Layout.astro";
 import Link from "../components/Link.astro";
 import SocialLink from "../components/SocialLink.astro";
+
+const social = [
+  {
+    name: "instagram",
+    url: "https://www.instagram.com/poshaus/",
+  },
+  {
+    name: "behance",
+    url: "https://www.behance.net/poshaus",
+  },
+  {
+    name: "twitter",
+    url: "https://twitter.com/DrColdy",
+  },
+  {
+    name: "email",
+    url: "mailto:jr.chand204@gmail.com",
+  },
+];
 ---
 
 <Layout title="Poshaus">
@@ -20,22 +39,15 @@ import SocialLink from "../components/SocialLink.astro";
         <Link href="#" title="Other" />
         <Link href="#" title="Store" />
         <div id="social">
-          <SocialLink
-            href="https://www.instagram.com/poshaus/"
-            svg="/svg/instagram.svg"
-            alt="instagram"
-          />
-          <SocialLink href="#" svg="/svg/behance.svg" alt="behance" />
-          <SocialLink
-            href="https://twitter.com/DrColdy"
-            svg="/svg/twitter.svg"
-            alt="twitter"
-          />
-          <SocialLink
-            href="mailto:jr.chand204@gmail.com"
-            svg="/svg/email.svg"
-            alt="email"
-          />
+          {
+            social.map((link) => (
+              <SocialLink
+                href={link.url}
+                svg={`/svg/${link.name}.svg`}
+                alt={link.name}
+              />
+            ))
+          }
         </div>
       </div>
     </div>
@@ -93,17 +105,6 @@ import SocialLink from "../components/SocialLink.astro";
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-
-  .text-gradient {
-    font-weight: 900;
-    background-image: var(--astro-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 100% 200%;
-    background-position-y: 100%;
-    border-radius: 0.4rem;
-    animation: pulse 4s ease-in-out infinite;
   }
 
   @keyframes pulse {
