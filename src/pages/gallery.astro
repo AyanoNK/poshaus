@@ -1,7 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from "@astrojs/image/components";
-import MedusaColors from "../../public/img/illustrations/medusa_colores.png";
 
 const rows = [
   [
@@ -36,13 +34,7 @@ const rows = [
           <div class="column">
             {column.map((image) => (
               <div class="image-container">
-                <Image
-                  src={image}
-                  class="image"
-                  width="100%"
-                  alt={image}
-                  aspectRatio="9:16"
-                />
+                <img src={image} class="image" width="100%" alt={image} />
               </div>
             ))}
           </div>
