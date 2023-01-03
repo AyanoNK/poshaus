@@ -1,23 +1,30 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "@astrojs/image/components";
+import MedusaColors from "../../public/img/illustrations/medusa_colores.png";
 
 const rows = [
-  ["agua1.png", "agua2.png", "agua3.png", "agua4.png"],
   [
-    "medusa_colores.png",
-    "virgo_the_virrgin.jpg",
-    "woman_3d_instagram_post.jpg",
-    "nena_cabeza_con_pajaroschitui.png",
-    "ejercicio_mika_pikazo",
-    "nena_cyberpunk_estulo_mio1.png",
+    "/img/illustrations/agua1.png",
+    "/img/illustrations/agua2.png",
+    "/img/illustrations/agua3.png",
+    "/img/illustrations/agua4.png",
   ],
   [
-    "predator.jpg",
-    "fondo_agua.png",
-    "quicksketches_cuerpos_juntos.png",
-    "joshua_spiderverse.png",
-    "haku_2.png",
-    "buho_no_face_hipster.png",
+    "/img/illustrations/medusa_colores.png",
+    "/img/illustrations/virgo_the_virrgin.jpg",
+    "/img/illustrations/woman_3d_instagram_post.jpg",
+    "/img/illustrations/nena_cabeza_con_pajaroschitui.png",
+    "/img/illustrations/ejercicio_mika_pikazo.png",
+    "/img/illustrations/nena_cyberpunk_estulo_mio1.png",
+  ],
+  [
+    "/img/illustrations/predator.jpg",
+    "/img/illustrations/fondo_agua.png",
+    "/img/illustrations/quicksketches_cuerpos_juntos.png",
+    "/img/illustrations/joshua_spiderverse.png",
+    "/img/illustrations/haku_2.png",
+    "/img/illustrations/buho_no_face_hipster.png",
   ],
 ];
 ---
@@ -30,7 +37,13 @@ const rows = [
           <div class="column">
             {column.map((image) => (
               <div class="image-container">
-                <img src={`/img/illustrations/${image}`} class="image" />
+                <Image
+                  src={image}
+                  class="image"
+                  width="100%"
+                  alt={image}
+                  aspectRatio="9:16"
+                />
               </div>
             ))}
           </div>
