@@ -27,6 +27,13 @@ const rows = [
 ---
 
 <Layout title="Poshaus">
+  <div id="header">
+    <a href="/">Main</a>
+    <a href="/">Illustrations</a>
+    <a href="/">Tattoo designs</a>
+    <a href="/">Other</a>
+    <a href="/">Store</a>
+  </div>
   <main id="container">
     <div class="grid">
       {
@@ -57,9 +64,14 @@ const rows = [
     margin: 0;
   }
 
+  #header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
   .grid {
     width: 100%;
-    margin: 1rem auto;
     display: grid;
     justify-items: center;
     grid-gap: 1rem;
