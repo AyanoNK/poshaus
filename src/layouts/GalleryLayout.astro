@@ -13,7 +13,7 @@ const navbar = [
     name: "Illustrations",
     link: pathGenerator("illustrations"),
   },
-  { name: "Tattoo designs", link: pathGenerator("tattoos") },
+  { name: "Tattoos", link: pathGenerator("tattoos") },
   { name: "Other", link: pathGenerator("other") },
   { name: "Store", link: pathGenerator("store") },
 ];
@@ -23,7 +23,9 @@ const navbar = [
   <div id="navbar">
     {navbar.map((item) => <a href={item.link}>{item.name}</a>)}
   </div>
-  <slot />
+  <div id="gallery-container">
+    <slot />
+  </div>
 </MainLayout>
 <style>
   #navbar {
@@ -31,12 +33,15 @@ const navbar = [
     width: 100%;
     display: flex;
     flex-direction: row;
-    background-color: pink;
   }
 
   #navbar a {
     text-decoration: none;
     color: #000;
     padding-right: 2rem;
+  }
+
+  #gallery-container {
+    padding: 0 1rem;
   }
 </style>

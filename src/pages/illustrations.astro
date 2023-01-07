@@ -1,40 +1,42 @@
 ---
 import GalleryLayout from "../layouts/GalleryLayout.astro";
-
+import { Image, Picture } from "@astrojs/image/components";
 const rows = [
   [
-    "/img/illustrations/agua1.png",
-    "/img/illustrations/agua2.png",
-    "/img/illustrations/agua3.png",
-    "/img/illustrations/agua4.png",
+    "/img/illustrations/agua1.webp",
+    "/img/illustrations/agua2.webp",
+    "/img/illustrations/agua3.webp",
+    "/img/illustrations/agua4.webp",
   ],
   [
-    "/img/illustrations/medusa_colores.png",
-    "/img/illustrations/virgo_the_virrgin.jpg",
-    "/img/illustrations/woman_3d_instagram_post.jpg",
-    "/img/illustrations/nena_cabeza_con_pajaroschitui.png",
-    "/img/illustrations/ejercicio_mika_pikazo.png",
-    "/img/illustrations/nena_cyberpunk_estulo_mio1.png",
+    "/img/illustrations/medusa_colores.webp",
+    "/img/illustrations/virgo_the_virrgin.webp",
+    "/img/illustrations/woman_3d_instagram_post.webp",
+    "/img/illustrations/nena_cabeza_con_pajaroschitui.webp",
+    "/img/illustrations/ejercicio_mika_pikazo.webp",
+    "/img/illustrations/nena_cyberpunk_estulo_mio1.webp",
   ],
   [
-    "/img/illustrations/predator.jpg",
-    "/img/illustrations/fondo_agua.png",
-    "/img/illustrations/joshua_spiderverse.png",
-    "/img/illustrations/haku_2.png",
-    "/img/illustrations/buho_no_face_hipster.png",
+    "/img/illustrations/predator.webp",
+    "/img/illustrations/fondo_agua.webp",
+    "/img/illustrations/joshua_spiderverse.webp",
+    "/img/illustrations/haku_2.webp",
+    "/img/illustrations/buho_no_face_hipster.webp",
   ],
 ];
 ---
 
-<GalleryLayout title="Poshaus">
-  <main id="container">
+<GalleryLayout>
+  <main>
+    <h1>Illustrations</h1>
+
     <div class="grid">
       {
         rows.map((column) => (
           <div class="column">
             {column.map((image) => (
               <div class="image-container">
-                <img src={image} class="image" width="100%" alt={image} />
+                <img src={image} class="image" alt={image} />
               </div>
             ))}
           </div>
@@ -50,6 +52,7 @@ const rows = [
 
   main {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
@@ -88,6 +91,13 @@ const rows = [
     }
   }
 
+  @media (min-width: 992px) {
+    .grid {
+      max-width: 55rem;
+      box-sizing: border-box;
+    }
+  }
+
   .image-container {
     display: flex;
     align-items: center;
@@ -96,6 +106,7 @@ const rows = [
 
   .image {
     width: 100%;
+    height: 100%;
     margin-bottom: 1rem;
   }
 </style>
