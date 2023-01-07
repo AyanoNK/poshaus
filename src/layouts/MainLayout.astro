@@ -1,9 +1,7 @@
 ---
-export interface Props {
-  title: string;
-}
+export interface Props {}
 
-const { title } = Astro.props as Props;
+const title = "Poshaus";
 ---
 
 <!DOCTYPE html>
@@ -30,7 +28,11 @@ const { title } = Astro.props as Props;
     <link rel="manifest" href="./site.webmanifest" />
   </head>
   <body>
-    <a href="https://github.com/AyanoNK" target="_blank" id="github"> Arroz</a>
+    <a href="https://github.com/AyanoNK" target="_blank" id="github">
+      <span data-text="Ayano" id="tooltip">
+        <img src="/svg/github.svg" alt="GitHub" id="gitcat" />
+      </span>
+    </a>
     <slot />
   </body>
 </html>
@@ -44,6 +46,7 @@ const { title } = Astro.props as Props;
     --color-text: hsl(12, 5%, 4%);
     --color-bg: hsl(10, 21%, 95%);
     --color-border: hsl(17, 24%, 90%);
+    --github-tooltip-gradient: linear-gradient(0deg, gray, black);
   }
 
   html {
@@ -58,6 +61,7 @@ const { title } = Astro.props as Props;
     padding: 0;
     font-family: "Gantari";
   }
+
   :global(h1) {
     font-size: var(--font-size-xl);
   }
@@ -72,7 +76,33 @@ const { title } = Astro.props as Props;
   }
 
   #github {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    opacity: 0.33;
+  }
+
+  #tooltip {
+    position: relative;
+  }
+
+  #tooltip:before {
     position: absolute;
-    z-index: 999;
+    display: none;
+    padding: 0.25rem;
+    color: #000;
+    text-align: center;
+    transform: translateY(-100%);
+    font-size: 0.75rem;
+    content: attr(data-text);
+  }
+
+  #tooltip:hover:before {
+    display: inline-flex;
+  }
+
+  #gitcat {
+    height: 3rem;
   }
 </style>

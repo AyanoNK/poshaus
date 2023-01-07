@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import IndexLayout from "../layouts/IndexLayout.astro";
 import Link from "../components/Link.astro";
 import SocialLink from "../components/SocialLink.astro";
 
@@ -23,7 +23,7 @@ const social = [
 ];
 ---
 
-<Layout title="Poshaus">
+<IndexLayout>
   <div id="video_background">
     <video width="640" height="360" autoplay muted loop>
       <source src="/video/video.webm" type="video/webm" />
@@ -52,11 +52,10 @@ const social = [
       </div>
     </div>
   </main>
-</Layout>
+</IndexLayout>
 
 <style>
   :root {
-    --astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
   }
 
   #logo {

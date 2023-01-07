@@ -7,10 +7,11 @@ import react from "@astrojs/react";
 import image from "@astrojs/image";
 
 // https://astro.build/config
-
-// https://astro.build/config
 export default defineConfig({
-  integrations: [react(), image({
-    serviceEntryPoint: "@astrojs/image/sharp"
-  })]
+  integrations: [
+    react(),
+    image({
+      serviceEntryPoint: "@astrojs/image/sharp",
+    }),
+  ],
 });
