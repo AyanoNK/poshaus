@@ -26,6 +26,7 @@ const navbar = [
 <style>
   #navbar {
     position: fixed;
+    top: 0;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -34,7 +35,8 @@ const navbar = [
     box-sizing: border-box;
     padding: 0 5rem;
     height: 5rem;
-    background: linear-gradient(180deg, pink, transparent);
+    background: linear-gradient(180deg, #c4e9df, transparent);
+    z-index: 2;
   }
 
   #navbar a {
@@ -49,5 +51,11 @@ const navbar = [
   #hamburger-house {
     height: 3rem;
     width: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    #navbar {
+      padding: 0 1rem;
+    }
   }
 </style>
