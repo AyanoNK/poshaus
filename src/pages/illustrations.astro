@@ -28,7 +28,7 @@ const rows = [
 
 <GalleryLayout>
   <main>
-    <h1>Illustrations</h1>
+    <h1 class="title">Illustrations</h1>
     <div class="grid">
       {
         rows.map((column) => (
@@ -86,22 +86,28 @@ const rows = [
     .grid {
       grid-template-columns: 1fr;
     }
+    .title {
+      font-size: var(--font-size-lg);
+    }
   }
   @media (min-width: 576px) {
     .grid {
       grid-template-columns: 1fr 1fr;
     }
+    .title {
+      font-size: var(--font-size-xl);
+    }
   }
   @media (min-width: 768px) {
     .grid {
+      max-width: 40rem;
+      box-sizing: border-box;
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
 
   @media (min-width: 992px) {
     .grid {
-      max-width: 55rem;
-      box-sizing: border-box;
     }
   }
 
