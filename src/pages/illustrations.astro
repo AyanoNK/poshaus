@@ -1,40 +1,49 @@
 ---
 import GalleryLayout from "../layouts/GalleryLayout.astro";
-
 const rows = [
   [
-    "/img/illustrations/agua1.png",
-    "/img/illustrations/agua2.png",
-    "/img/illustrations/agua3.png",
-    "/img/illustrations/agua4.png",
+    "/img/illustrations/agua1.webp",
+    "/img/illustrations/agua2.webp",
+    "/img/illustrations/agua3.webp",
+    "/img/illustrations/agua4.webp",
   ],
   [
-    "/img/illustrations/medusa_colores.png",
-    "/img/illustrations/virgo_the_virrgin.jpg",
-    "/img/illustrations/woman_3d_instagram_post.jpg",
-    "/img/illustrations/nena_cabeza_con_pajaroschitui.png",
-    "/img/illustrations/ejercicio_mika_pikazo.png",
-    "/img/illustrations/nena_cyberpunk_estulo_mio1.png",
+    "/img/illustrations/medusa_colores.webp",
+    "/img/illustrations/virgo_the_virrgin.webp",
+    "/img/illustrations/woman_3d_instagram_post.webp",
+    "/img/illustrations/nena_cabeza_con_pajaroschitui.webp",
+    "/img/illustrations/ejercicio_mika_pikazo.webp",
+    "/img/illustrations/nena_cyberpunk_estulo_mio1.webp",
   ],
   [
-    "/img/illustrations/predator.jpg",
-    "/img/illustrations/fondo_agua.png",
-    "/img/illustrations/joshua_spiderverse.png",
-    "/img/illustrations/haku_2.png",
-    "/img/illustrations/buho_no_face_hipster.png",
+    "/img/illustrations/predator.webp",
+    "/img/illustrations/fondo_agua.webp",
+    "/img/illustrations/joshua_spiderverse.webp",
+    "/img/illustrations/haku_2.webp",
+    "/img/illustrations/buho_no_face_hipster.webp",
   ],
 ];
+//FURTHER OPTIMIZE https://bholmes.dev/blog/picture-perfect-image-optimization/
 ---
 
-<GalleryLayout title="Poshaus">
-  <main id="container">
+<GalleryLayout>
+  <main>
+    <h1>Illustrations</h1>
     <div class="grid">
       {
         rows.map((column) => (
           <div class="column">
             {column.map((image) => (
               <div class="image-container">
-                <img src={image} class="image" width="100%" alt={image} />
+                <img
+                  src={image}
+                  srcset={`${image} 120w,
+                        ${image} 200w,
+                        ${image} 300w`}
+                  class="image"
+                  alt={image}
+                  width={100}
+                />
               </div>
             ))}
           </div>
@@ -50,11 +59,12 @@ const rows = [
 
   main {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
     min-height: 100vh;
     width: 100%;
     margin: 0;
+    padding: 0;
   }
 
   .grid {
@@ -88,6 +98,13 @@ const rows = [
     }
   }
 
+  @media (min-width: 992px) {
+    .grid {
+      max-width: 55rem;
+      box-sizing: border-box;
+    }
+  }
+
   .image-container {
     display: flex;
     align-items: center;
@@ -96,6 +113,12 @@ const rows = [
 
   .image {
     width: 100%;
+    height: auto;
     margin-bottom: 1rem;
+    transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99);
+  }
+  .image:is(:hover) {
+    will-change: transform;
+    transform: scale(1.05);
   }
 </style>
