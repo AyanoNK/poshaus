@@ -23,6 +23,7 @@ const rows = [
     "/img/illustrations/buho_no_face_hipster.webp",
   ],
 ];
+//FURTHER OPTIMIZE https://bholmes.dev/blog/picture-perfect-image-optimization/
 ---
 
 <GalleryLayout>
@@ -114,5 +115,10 @@ const rows = [
     width: 100%;
     height: auto;
     margin-bottom: 1rem;
+    transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99);
+  }
+  .image:is(:hover) {
+    will-change: transform;
+    transform: scale(1.05);
   }
 </style>
