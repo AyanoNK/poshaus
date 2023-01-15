@@ -11,7 +11,7 @@ const { pathname } = Astro.url;
       <a href="/">
         <img src="/img/logo.png" id="navbar-logo" alt="navbar-logo" />
       </a>
-      <span>Casita</span>
+      <img src="/svg/house.svg" alt="house" class="house" />
     </div>
   </div>
 </div>
@@ -38,6 +38,10 @@ const { pathname } = Astro.url;
 
   #navbar-logo {
     height: 3rem;
+  }
+
+  .house {
+    height: 2.5rem;
   }
 
   .wave-container {
