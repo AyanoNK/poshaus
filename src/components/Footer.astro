@@ -1,0 +1,59 @@
+---
+import Social from "../generators/social";
+import FooterLink from "./FooterLink.astro";
+---
+
+<div id="footer">
+  <div class="wave-container">
+    <div class="wave"></div>
+  </div>
+  <div id="content-container">
+    {
+      Social.map((link) => (
+        <FooterLink
+          href={link.url}
+          svg={`/svg/${link.name}.svg`}
+          alt={link.name}
+        />
+      ))
+    }
+  </div>
+</div>
+<style>
+  #footer {
+    padding-top: 5rem;
+    overflow: hidden;
+  }
+
+  #content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    z-index: 1;
+  }
+
+  .wave-container {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1;
+  }
+  .wave {
+    background: url("/svg/footer_wave.svg") repeat-x;
+    opacity: 0.2;
+    width: 5760px;
+    height: 200px;
+    animation: wave 8s linear infinite;
+    transform: translate3d(0, 0, 0);
+  }
+
+  @keyframes wave {
+    0% {
+      margin-left: 0;
+    }
+    100% {
+      margin-left: -1920px;
+    }
+  }
+</style>

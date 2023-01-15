@@ -1,6 +1,5 @@
 ---
 import GalleryLayout from "../layouts/GalleryLayout.astro";
-import { Image, Picture } from "@astrojs/image/components";
 const rows = [
   [
     "/img/illustrations/agua1.webp",
@@ -24,19 +23,27 @@ const rows = [
     "/img/illustrations/buho_no_face_hipster.webp",
   ],
 ];
+//FURTHER OPTIMIZE https://bholmes.dev/blog/picture-perfect-image-optimization/
 ---
 
 <GalleryLayout>
   <main>
-    <h1>Illustrations</h1>
-
+    <h1 class="title">Illustrations</h1>
     <div class="grid">
       {
         rows.map((column) => (
           <div class="column">
             {column.map((image) => (
               <div class="image-container">
-                <img src={image} class="image" alt={image} />
+                <img
+                  src={image}
+                  srcset={`${image} 120w,
+                        ${image} 200w,
+                        ${image} 300w`}
+                  class="image"
+                  alt={image}
+                  width={100}
+                />
               </div>
             ))}
           </div>
@@ -54,10 +61,10 @@ const rows = [
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     min-height: 100vh;
     width: 100%;
     margin: 0;
+    padding: 0;
   }
 
   .grid {
@@ -79,22 +86,28 @@ const rows = [
     .grid {
       grid-template-columns: 1fr;
     }
+    .title {
+      font-size: var(--font-size-lg);
+    }
   }
   @media (min-width: 576px) {
     .grid {
       grid-template-columns: 1fr 1fr;
     }
+    .title {
+      font-size: var(--font-size-xl);
+    }
   }
   @media (min-width: 768px) {
     .grid {
+      max-width: 40rem;
+      box-sizing: border-box;
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
 
   @media (min-width: 992px) {
     .grid {
-      max-width: 55rem;
-      box-sizing: border-box;
     }
   }
 
@@ -106,7 +119,12 @@ const rows = [
 
   .image {
     width: 100%;
-    height: 100%;
+    height: auto;
     margin-bottom: 1rem;
+    transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99);
+  }
+  .image:is(:hover) {
+    will-change: transform;
+    transform: scale(1.05);
   }
 </style>

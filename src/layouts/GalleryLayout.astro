@@ -1,47 +1,20 @@
 ---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import WavedHeader from "../components/WavedHeader.astro";
 import MainLayout from "./MainLayout.astro";
-
-const { pathname } = Astro.url;
-
-function pathGenerator(path) {
-  return pathname.includes(path) ? "#" : `/${path}`;
-}
-
-const navbar = [
-  { name: "Main", link: "/" },
-  {
-    name: "Illustrations",
-    link: pathGenerator("illustrations"),
-  },
-  { name: "Tattoos", link: pathGenerator("tattoos") },
-  { name: "Other", link: pathGenerator("other") },
-  { name: "Store", link: pathGenerator("store") },
-];
 ---
 
 <MainLayout>
-  <div id="navbar">
-    {navbar.map((item) => <a href={item.link}>{item.name}</a>)}
-  </div>
+  <WavedHeader />
   <div id="gallery-container">
     <slot />
   </div>
+  <Footer />
 </MainLayout>
 <style>
-  #navbar {
-    position: fixed;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-  }
-
-  #navbar a {
-    text-decoration: none;
-    color: #000;
-    padding-right: 2rem;
-  }
-
   #gallery-container {
     padding: 0 1rem;
+    padding-top: 5rem;
   }
 </style>
