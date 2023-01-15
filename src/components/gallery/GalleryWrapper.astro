@@ -1,0 +1,28 @@
+---
+import ImageGrid from "./ImageGrid.astro";
+
+interface Props {
+  title: string;
+  columns: string[][];
+}
+
+const { title, columns } = Astro.props;
+---
+
+<div class="gallery-wrapper">
+  <h1 class="title">
+    {title}
+  </h1>
+  <ImageGrid columns={columns} />
+  <style>
+    .gallery-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</div>
