@@ -1,0 +1,90 @@
+---
+interface Props {
+  columns: string[][];
+}
+const { columns } = Astro.props;
+---
+
+<div class="grid">
+  {
+    columns.map((column) => (
+      <div class="column">
+        {column.map((image) => (
+          <div class="image-container">
+            <img
+              src={image}
+              srcset={`${image} 120w,
+                    ${image} 200w,
+                    ${image} 300w`}
+              class="image"
+              alt={image}
+              width={100}
+            />
+          </div>
+        ))}
+      </div>
+    ))
+  }
+</div>
+<style>
+  .grid {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    grid-gap: 1rem;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  @media (min-width: 0px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    .title {
+      font-size: var(--font-size-lg);
+    }
+  }
+  @media (min-width: 576px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .title {
+      font-size: var(--font-size-xl);
+    }
+  }
+  @media (min-width: 768px) {
+    .grid {
+      max-width: 40rem;
+      box-sizing: border-box;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .grid {
+    }
+  }
+
+  .image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99);
+  }
+  .image:is(:hover) {
+    will-change: transform;
+    transform: scale(1.05);
+  }
+</style>

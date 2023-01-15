@@ -1,8 +1,40 @@
 ---
-import Pronto from "../components/Pronto.astro";
+import GalleryWrapper from "../components/gallery/GalleryWrapper.astro";
 import GalleryLayout from "../layouts/GalleryLayout.astro";
+
+const tattooColumns = [
+  [
+    "/img/tattoos/applecore4.webp",
+    "/img/tattoos/Crow_BnW4.webp",
+    "/img/tattoos/demiurge_Recovered2.webp",
+    "/img/tattoos/Dragon_taxxi_color1.webp",
+    "/img/tattoos/floral_band_new_3.webp",
+    "/img/tattoos/fox_minimalistic2.webp",
+    "/img/tattoos/geisha3.webp",
+    "/img/tattoos/Lakota_sioux_headress2.webp",
+  ],
+  [
+    "/img/tattoos/Gothic_creepy2.webp",
+    "/img/tattoos/horror_half.webp",
+    "/img/tattoos/Itachi_kunai1.webp",
+    "/img/tattoos/Kali_durga_cards.webp",
+    "/img/tattoos/Knight_lapiz9.webp",
+    "/img/tattoos/KnY_waves_kanji_2.webp",
+  ],
+  [
+    "/img/tattoos/Lion_headress2.webp",
+    "/img/tattoos/mermaid_goth2.webp",
+    "/img/tattoos/Mileena3.webp",
+    "/img/tattoos/Oni_tattoo.webp",
+    "/img/tattoos/owl_NT.webp",
+    "/img/tattoos/phoenix_aries5.webp",
+    "/img/tattoos/sun_and_moon_mountains_water1.webp",
+    "/img/tattoos/Kraken_boat4.webp",
+  ],
+];
 ---
 
 <GalleryLayout>
-  <Pronto />
+  <GalleryWrapper columns={tattooColumns} title="Tattoo Designs" />
 </GalleryLayout>
+<style></style>
