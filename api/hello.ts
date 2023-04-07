@@ -5,7 +5,7 @@ export default async function handler(
   request: VercelRequest,
   response: VercelResponse
 ) {
-  const id = req.query.id as string;
+  const id = request.query.id as string;
 
   if (!id)
     return response.status(400).json({
