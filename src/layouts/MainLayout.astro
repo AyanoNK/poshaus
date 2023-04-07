@@ -28,11 +28,16 @@ const title = "Poshaus";
     <link rel="manifest" href="./site.webmanifest" />
   </head>
   <body>
-    <a href="https://github.com/AyanoNK" target="_blank" id="github">
-      <span data-text="Ayano" id="tooltip">
-        <img src="/svg/github.svg" alt="GitHub" id="gitcat" />
-      </span>
-    </a>
+    <div class="flex fixed bottom-2 right-0">
+      <div class="grid grid-cols-1 gap-1 justify-items-center">
+        <a href="/secrets">
+          <img src="/svg/guaro_box.svg" alt="secrets" class="h-12" />
+        </a>
+        <a href="https://github.com/AyanoNK" target="_blank">
+          <img src="/svg/github.svg" alt="secrets" class="h-12" />
+        </a>
+      </div>
+    </div>
     <slot />
   </body>
 </html>
