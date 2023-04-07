@@ -30,8 +30,5 @@ export default async function handler(
     .catch(() => null);
   response.status(200).json({
     url: maxBitrateAudio ? maxBitrateAudio.url : null,
-    body: maxBitrateAudio ? maxBitrateAudio.url : null,
-    query: request.query,
-    cookies: request.cookies,
   });
 }
