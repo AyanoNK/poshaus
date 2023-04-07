@@ -5,15 +5,15 @@ export default async function handler(
   request: VercelRequest,
   response: VercelResponse
 ) {
-  const url = request.body.url as string;
+  const id = req.query.id as string;
 
-  if (!url)
+  if (!id)
     return response.status(400).json({
       error: "No url provided",
     });
 
   const maxBitrateAudio = await ytdl
-    .getInfo(url)
+    .getInfo(id)
     .then((info) => {
       return info.formats
         .filter((f) => f.mimeType?.includes("audio"))
