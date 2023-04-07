@@ -29,8 +29,8 @@ dependencies:
     specifier: ^0.31.3
     version: 0.31.3
   ytdl-core:
-    specifier: ^4.11.3
-    version: 4.11.3
+    specifier: git+ssh://git@github.com:khlevon/node-ytdl-core.git#v4.11.3-patch.1
+    version: github.com/khlevon/node-ytdl-core/586971bd9aeda1cbb4600851cfef82a809833ac2
 
 devDependencies:
   astro:
@@ -4057,17 +4057,19 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  /ytdl-core@4.11.3:
-    resolution: {integrity: sha512-0KerQw+R7Nnhcebxq6WPopO92VLNnsoRVjJuhGhRzgfK1YdrnG1aqaq4zycolMBY+K8TZHXPV7ZNIjcawD/BPA==}
+  /zod@3.19.1:
+    resolution: {integrity: sha512-LYjZsEDhCdYET9ikFu6dVPGp2YH9DegXjdJToSzD9rO6fy4qiRYFoyEYwps88OseJlPyl2NOe2iJuhEhL7IpEA==}
+
+  /zwitch@2.0.4:
+    resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
+
+  github.com/khlevon/node-ytdl-core/586971bd9aeda1cbb4600851cfef82a809833ac2:
+    resolution: {tarball: https://codeload.github.com/khlevon/node-ytdl-core/tar.gz/586971bd9aeda1cbb4600851cfef82a809833ac2}
+    name: ytdl-core
+    version: 0.0.0-development
     engines: {node: '>=12'}
     dependencies:
       m3u8stream: 0.8.6
       miniget: 4.2.2
       sax: 1.2.4
     dev: false
-
-  /zod@3.19.1:
-    resolution: {integrity: sha512-LYjZsEDhCdYET9ikFu6dVPGp2YH9DegXjdJToSzD9rO6fy4qiRYFoyEYwps88OseJlPyl2NOe2iJuhEhL7IpEA==}
-
-  /zwitch@2.0.4:
-    resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
