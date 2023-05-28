@@ -3,7 +3,9 @@ import ytdl from "ytdl-core";
 
 const allowCors = (fn) => async (req, res) => {
   res.setHeader("Access-Control-Allow-Credentials", true);
-  res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  // another common pattern
+  // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET,OPTIONS,PATCH,DELETE,POST,PUT"
@@ -20,9 +22,9 @@ const allowCors = (fn) => async (req, res) => {
 };
 
 async function handler(request: VercelRequest, response: VercelResponse) {
-  const id = request.query.id as string;
+  const id: string | string[] = request.query.id;
 
-  if (!id)
+  if (!id || Array.isArray(id) || typeof id !== "string")
     return response.status(400).json({
       error: "No url provided",
     });
