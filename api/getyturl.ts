@@ -29,6 +29,10 @@ async function handler(request: VercelRequest, response: VercelResponse) {
       error: "No url provided",
     });
 
+  const r = await ytdl.getInfo(id);
+  const audios = r.formats.filter((f) => f.mimeType?.includes("audio"));
+  console.log(audios);
+
   const maxBitrateAudio = await ytdl
     .getInfo(id)
     .then((info) => {
