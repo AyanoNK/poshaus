@@ -29,29 +29,31 @@ async function handler(request: VercelRequest, response: VercelResponse) {
       error: "No url provided",
     });
 
-  const r = await ytdl.getInfo(id);
-  const audios = r.formats.filter((f) => f.mimeType?.includes("audio"));
-  console.log(audios);
+  const r = await ytdl.getInfo(id).catch((e) => {
+    console.error(e);
+    return {
+      formats: [],
+    };
+  });
 
-  const maxBitrateAudio = await ytdl
-    .getInfo(id)
-    .then((info) => {
-      return info.formats
-        .filter((f) => f.mimeType?.includes("audio"))
-        .reduce((accumulator, current) => {
-          if (
-            accumulator.bitrate &&
-            current.bitrate &&
-            accumulator.bitrate > current.bitrate
-          )
-            return accumulator;
-          else return current;
-        });
-    })
-    .catch((err) => {
-      console.error(err);
-      return null;
+  if (!r.formats || !Array.isArray(r.formats))
+    return response.status(400).json({
+      error: "No formats found",
     });
+
+  const audios = r.formats.filter((f) => f.mimeType?.includes("audio"));
+  const maxBitrateAudio = audios.reduce((accumulator, current) => {
+    if (
+      accumulator.bitrate &&
+      current.bitrate &&
+      accumulator.bitrate > current.bitrate
+    )
+      return accumulator;
+    else return current;
+  });
+
+  console.log(maxBitrateAudio);
+
   response.status(200).json({
     url: maxBitrateAudio ? maxBitrateAudio.url : null,
   });
