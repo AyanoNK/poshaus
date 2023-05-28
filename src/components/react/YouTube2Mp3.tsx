@@ -7,6 +7,13 @@ export default function YouTube2Mp3() {
     if (url !== "") window.open(url, "_blank");
   }, [url]);
 
+  const test = async () => {
+    const response = await fetch(` https://poshaus.art/api/happy`, {
+      mode: "no-cors",
+    }).then((res) => res.json());
+    console.log(response);
+  };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -15,8 +22,11 @@ export default function YouTube2Mp3() {
       /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/|shorts\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
     const match = url.match(regex)[1];
     const response = await fetch(
-      `https://poshaus.art/api/getyturl?id=${match}`
-    ).then((res) => res.json());
+      `https://poshaus.art/api/getyturl?id=${match}`,
+      {
+        mode: "no-cors",
+      }
+    );
 
     console.log(response);
     setUrl(response.url);
@@ -56,6 +66,7 @@ export default function YouTube2Mp3() {
             </div>
           </div>
         </form>
+        <button onClick={test}>Poopoo</button>
       </div>
     </div>
   );
