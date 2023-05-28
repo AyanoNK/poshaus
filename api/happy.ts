@@ -14,12 +14,13 @@ const allowCors = (fn) => async (req, res) => {
     res.status(200).end();
     return;
   }
+  console.log(req.headers);
   return await fn(req, res);
 };
 
 const handler = (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
-
+  res.setHeader("Content-Type", "application/json");
+  res.setHeader("Access-Control-Allow-Origin", "*");
   const d = new Date();
   res.end(d.toString());
 };
