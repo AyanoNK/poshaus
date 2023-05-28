@@ -18,6 +18,8 @@ const allowCors = (fn) => async (req, res) => {
 };
 
 const handler = (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
+
   const d = new Date();
   res.end(d.toString());
 };
