@@ -29,34 +29,33 @@ async function handler(request: VercelRequest, response: VercelResponse) {
       error: "No url provided",
     });
 
-  const r = await ytdl.getInfo(id).catch((e) => {
-    console.error(e);
-    return {
-      formats: [],
-    };
-  });
+  try {
+    const r = await ytdl.getInfo(id);
+    if (!r.formats || !Array.isArray(r.formats))
+      return response.status(400).json({
+        error: "No formats found",
+      });
 
-  if (!r.formats || !Array.isArray(r.formats))
-    return response.status(400).json({
-      error: "No formats found",
+    const audios = r.formats.filter((f) => f.mimeType?.includes("audio"));
+    const maxBitrateAudio = audios.reduce((accumulator, current) => {
+      if (
+        accumulator.bitrate &&
+        current.bitrate &&
+        accumulator.bitrate > current.bitrate
+      )
+        return accumulator;
+      else return current;
     });
-
-  const audios = r.formats.filter((f) => f.mimeType?.includes("audio"));
-  const maxBitrateAudio = audios.reduce((accumulator, current) => {
-    if (
-      accumulator.bitrate &&
-      current.bitrate &&
-      accumulator.bitrate > current.bitrate
-    )
-      return accumulator;
-    else return current;
-  });
-
-  console.log(maxBitrateAudio);
-
-  response.status(200).json({
-    url: maxBitrateAudio ? maxBitrateAudio.url : null,
-  });
+    console.log(maxBitrateAudio);
+    return response.status(200).json({
+      url: maxBitrateAudio,
+    });
+  } catch (e) {
+    console.error(e);
+    return response.status(400).json({
+      error: "Error requesting url",
+    });
+  }
 }
 
 module.exports = allowCors(handler);
