@@ -48,7 +48,10 @@ async function handler(request: VercelRequest, response: VercelResponse) {
           else return current;
         });
     })
-    .catch(() => null);
+    .catch((err) => {
+      console.error(err);
+      return null;
+    });
   response.status(200).json({
     url: maxBitrateAudio ? maxBitrateAudio.url : null,
   });
