@@ -1,18 +1,8 @@
-# Astro
+# Poshaus
 
-This directory is a brief example of an [Astro](https://astro.build/) site that can be deployed to Vercel with zero configuration.
-
-## Deploy Your Own
-
-Deploy your own Astro project with Vercel.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/astro&template=astro)
-
-_Live Example: https://astro-template.vercel.app_
+Check out the live website at [https://poshaus.art/](https://poshaus.art/).
 
 ## Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
 
 ```
 /
