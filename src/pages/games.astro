@@ -1,0 +1,29 @@
+---
+import GameWrapper from "../components/gallery/GameWrapper.astro";
+import GalleryLayout from "../layouts/GalleryLayout.astro";
+
+const games = [
+  {
+    link: "https://studio904.itch.io/skarymonsters",
+    logo: "/img/games/skary_monsters/logo.webp",
+    concept: "/img/games/skary_monsters/concept.webp",
+  },
+  {
+    link: "https://studio904.itch.io/backrowseaters",
+
+    logo: "/img/games/back_row_seaters/logo.webp",
+    concept: "/img/games/back_row_seaters/concept.webp",
+  },
+  {
+    link: "https://studio904.itch.io/metalclaw",
+    logo: "/img/games/metal_claw/logo.webp",
+    concept: "/img/games/metal_claw/concept.webp",
+  },
+];
+//FURTHER OPTIMIZE https://bholmes.dev/blog/picture-perfect-image-optimization/
+---
+
+<GalleryLayout>
+  <GameWrapper columns={games} title="Games" />
+</GalleryLayout>
+<style></style>

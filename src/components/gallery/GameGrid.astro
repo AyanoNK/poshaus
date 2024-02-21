@@ -1,0 +1,107 @@
+---
+interface IGame {
+  link: string;
+  logo: string;
+  concept: string;
+}
+
+interface Props {
+  columns: IGame[];
+}
+const { columns } = Astro.props;
+---
+
+<div class="grid">
+  {
+    columns.map((column: IGame) => (
+      <a class="column" href={column.link} target="_blank">
+        <div class="logo-container">
+          <img
+            src={column.logo}
+            srcset={`${column.logo} 120w,
+                    ${column.logo} 200w,
+                    ${column.logo} 300w`}
+            class="image"
+            alt={column.logo}
+            width={100}
+          />
+        </div>
+        <div class="concept-container">
+          <img
+            src={column.concept}
+            srcset={`${column.concept} 120w,
+                    ${column.concept} 200w,
+                    ${column.concept} 300w`}
+            class="image"
+            alt={column.concept}
+            width={100}
+          />
+        </div>
+      </a>
+    ))
+  }
+</div>
+<style>
+  .grid {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    grid-gap: 1rem;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .column {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+  }
+
+  @media (min-width: 0px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    .title {
+      font-size: var(--font-size-lg);
+    }
+  }
+  @media (min-width: 576px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .title {
+      font-size: var(--font-size-xl);
+    }
+  }
+  @media (min-width: 768px) {
+    .grid {
+      max-width: 100%;
+      box-sizing: border-box;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .grid {
+      max-width: 1200px;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    .grid {
+      grid-gap: 2rem;
+    }
+  }
+
+  .logo-container {
+    width: 80%;
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: 0.15rem;
+  }
+</style>
