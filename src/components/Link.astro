@@ -2,12 +2,13 @@
 export interface Props {
   title: string;
   href: string;
+  target?: string;
 }
 
-const { href, title } = Astro.props as Props;
+const { href, title, target } = Astro.props as Props;
 ---
 
-<a href={href} class="link-card">
+<a href={href} class="link-card" target={target ? target : "_self"}>
   {title}
   <style>
     :root {
