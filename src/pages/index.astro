@@ -30,16 +30,19 @@ const social = [
       <source src="/video/video.mp4" type="video/mp4" />
     </video>
   </div>
-  <main id="container">
-    <div class="content">
-      <img src="/svg/logo.svg" alt="Poshaus" id="logo" />
+  <main
+    id="container"
+    class="flex items-center justify-center min-h-screen w-full"
+  >
+    <div class="content" id="content" class="flex flex-col items-center">
+      <img src="/svg/logo.svg" alt="Poshaus" id="logo" class="my-8 w-full" />
       <div id="links">
         <Link href="/illustrations" title="Illustrations" />
         <Link href="/tattoos" title="Tattoo designs" />
         <Link href="/games" title="Games" />
         <Link href="/projects" title="Projects" />
         <Link href="/store" title="Store" target="_blank" />
-        <div id="social">
+        <div id="social" class="flex flex-row flex-nowrap">
           {
             social.map((link) => (
               <SocialLink
@@ -57,20 +60,6 @@ const social = [
 
 <style>
   :root {
-  }
-
-  #logo {
-    margin: 2rem 0;
-    width: 100%;
-    height: auto;
-  }
-
-  main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    width: 100%;
   }
 
   #video_background {
@@ -94,18 +83,6 @@ const social = [
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
-  }
-
-  #social {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-  }
-
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 
   @keyframes pulse {
