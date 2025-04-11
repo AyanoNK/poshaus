@@ -1,0 +1,31 @@
+---
+interface Props {
+  invert?: boolean;
+}
+
+const { invert } = Astro.props;
+const transformValue = invert ? "scaleY(-1)" : "scaleY(1)";
+---
+
+<div id="blue-wave-container" class={`w-full overflow-hidden`}>
+  <div id="blue-wave"></div>
+</div>
+<style define:vars={{ transformValue }}>
+  #blue-wave {
+    background: url("/svg/header_wave.svg") repeat-x;
+    /* opacity: 0.5; */
+    width: 5760px;
+    height: 150px;
+    animation: wave 6s linear infinite;
+    transform: translate3d(0, 0, 0);
+    transform: var(--transformValue);
+  }
+  @keyframes wave {
+    0% {
+      margin-left: 0;
+    }
+    100% {
+      margin-left: -1920px;
+    }
+  }
+</style>
