@@ -62,33 +62,35 @@ const illustrationColumns = [
       <source src="/video/video.mp4" type="video/mp4" />
     </video>
   </div>
-  <main
-    id="container"
-    class="flex items-center justify-center min-h-screen w-full"
-  >
-    <div class="content" id="content" class="flex flex-col items-center">
-      <img src="/svg/logo.svg" alt="Poshaus" id="logo" class="my-8 w-full" />
-      <div id="links">
-        <Link href="#illustrations" title="Illustrations" />
-        <Link href="/tattoos" title="Tattoo designs" />
-        <Link href="/games" title="Games" />
-        <Link href="/projects" title="Projects" />
-        <Link href="/store" title="Store" target="_blank" />
-        <div id="social" class="flex flex-row flex-nowrap">
-          {
-            social.map((link) => (
-              <SocialLink
-                href={link.url}
-                svg={`/svg/${link.name}.svg`}
-                alt={link.name}
-              />
-            ))
-          }
-        </div>
+  <main id="main" class="grid grid-cols-1 grid-rows-1 pb-8">
+    <div
+      id="container"
+      class="flex items-center justify-center min-h-screen w-full"
+    >
+      <div class="content" id="content" class="flex flex-col items-center">
+        <img src="/svg/logo.svg" alt="Poshaus" id="logo" class="my-8 w-full" />
+        <scroll-container id="links" class="scroll-smooth overflow-y-scroll">
+          <Link href="#illustrations" title="Illustrations" />
+          <Link href="/tattoos" title="Tattoo designs" />
+          <Link href="/games" title="Games" />
+          <Link href="/projects" title="Projects" />
+          <Link href="/store" title="Store" target="_blank" />
+          <div id="social" class="flex flex-row flex-nowrap">
+            {
+              social.map((link) => (
+                <SocialLink
+                  href={link.url}
+                  svg={`/svg/${link.name}.svg`}
+                  alt={link.name}
+                />
+              ))
+            }
+          </div>
+        </scroll-container>
       </div>
     </div>
+    <IllustrationsGrid columns={illustrationColumns} socials={social} />
   </main>
-  <IllustrationsGrid columns={illustrationColumns} />
 </IndexLayout>
 
 <style>

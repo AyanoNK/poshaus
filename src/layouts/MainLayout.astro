@@ -42,10 +42,10 @@ const title = "Poshaus";
     --color-text: hsl(12, 5%, 4%);
     --color-bg: hsl(10, 21%, 95%);
     --color-border: hsl(17, 24%, 90%);
-    --github-tooltip-gradient: linear-gradient(0deg, gray, black);
   }
 
   html {
+    scroll-behavior: smooth;
     font-family: system-ui, sans-serif;
     font-size: var(--font-size-base);
     color: var(--color-text);
@@ -77,14 +77,6 @@ const title = "Poshaus";
       Bitstream Vera Sans Mono,
       Courier New,
       monospace;
-  }
-
-  #github {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    opacity: 0.33;
   }
 
   #tooltip {

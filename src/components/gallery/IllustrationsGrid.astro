@@ -1,40 +1,62 @@
 ---
+import BlueWave from "../BlueWave.astro";
+import Footer from "../Footer.astro";
+import GreenWave from "../GreenWave.astro";
+import SocialLink from "../SocialLink.astro";
+
 interface Props {
   columns: string[][];
+  socials: {
+    name: string;
+    url: string;
+  }[];
 }
-const { columns } = Astro.props;
-// backdrop-blur-lg
+const { columns, socials } = Astro.props;
+// bg-gradient-to-b from-bluewave to-greenwave
 ---
 
-<div
-  id="illustrations"
-  class="relative flex flex-col items-center p-4 bg-[#63e1da] bg-opacity-50 scroll-smooth"
->
-  <div
-    class="grid grid-cols-3 justify-center justify-items-center gap-4 w-full m-0"
+<div id="illustrations">
+  <BlueWave invert />
+  <scroll-page
+    class="relative flex flex-col items-center p-4 bg-bluewave scroll-smooth gap-24"
   >
-    {
-      columns.map((column) => (
-        <div class="flex flex-col w-full gap-4">
-          {column.map((image) => (
-            <div class="image-container">
-              <img
-                src={image}
-                srcset={`${image} 120w,
+    <div
+      class="grid grid-cols-3 justify-center justify-items-center gap-4 w-full m-0"
+    >
+      {
+        columns.map((column) => (
+          <div class="flex flex-col w-full gap-4">
+            {column.map((image) => (
+              <div class="image-container">
+                <img
+                  src={image}
+                  srcset={`${image} 120w,
                   ${image} 200w,
                   ${image} 300w`}
-                class="image"
-                alt={image}
-                width={100}
-              />
-            </div>
-          ))}
-        </div>
-      ))
-    }
-  </div>
+                  class="image"
+                  alt={image}
+                  width={100}
+                />
+              </div>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+    <div id="social" class="flex flex-row flex-nowrap gap-8">
+      {
+        socials.map((link) => (
+          <SocialLink
+            href={link.url}
+            svg={`/svg/${link.name}.svg`}
+            alt={link.name}
+          />
+        ))
+      }
+    </div>
+  </scroll-page>
+  <BlueWave />
 </div>
-
 <style>
   @media (min-width: 0px) {
     .grid {
