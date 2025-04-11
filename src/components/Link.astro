@@ -1,14 +1,20 @@
 ---
 export interface Props {
   title: string;
-  href: string;
+  href?: string;
   target?: string;
+  onclick?: string;
 }
 
-const { href, title, target } = Astro.props as Props;
+const { href, title, target, onclick } = Astro.props as Props;
 ---
 
-<a href={href} class="link-card" target={target ? target : "_self"}>
+<a
+  href={href}
+  class="link-card"
+  target={target ? target : "_self"}
+  onclick={onclick ?? ""}
+>
   {title}
   <style>
     :root {

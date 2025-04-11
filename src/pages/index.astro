@@ -2,6 +2,7 @@
 import IndexLayout from "../layouts/IndexLayout.astro";
 import Link from "../components/Link.astro";
 import SocialLink from "../components/SocialLink.astro";
+import IllustrationsGrid from "../components/gallery/IllustrationsGrid.astro";
 
 const social = [
   {
@@ -21,6 +22,37 @@ const social = [
     url: "mailto:jr.chand204@gmail.com",
   },
 ];
+
+const illustrationColumns = [
+  [
+    "/img/illustrations/narcissus_water_drop_small.webp",
+    "/img/illustrations/Water_dress_print.webp",
+    "/img/illustrations/giorno_question_mark.webp",
+    "/img/illustrations/warhammer_paladin.webp",
+    "/img/illustrations/fox_girl.webp",
+    "/img/illustrations/tiger_linked_ingirl.webp",
+    "/img/illustrations/agua1.webp",
+    "/img/illustrations/poshaus_con_chica_black.webp",
+  ],
+  [
+    "/img/illustrations/Knight_sleepingsmall.webp",
+    "/img/illustrations/Chica_le_da_el_sol_insta.webp",
+    "/img/illustrations/new_year_dragon.webp",
+    "/img/illustrations/front_chica_chest_tattoo2_3.webp",
+    "/img/illustrations/virgo_the_virrgin.webp",
+    "/img/illustrations/agua3.webp",
+    "/img/illustrations/agua4.webp",
+  ],
+  [
+    "/img/illustrations/sunmansmall.webp",
+    "/img/illustrations/lady_lake_rgb.webp",
+    "/img/illustrations/magik.webp",
+    "/img/illustrations/ramen_soup_big.webp",
+    "/img/illustrations/paper_hair.webp",
+    "/img/illustrations/fondo_agua.webp",
+    "/img/illustrations/haku_2.webp",
+  ],
+];
 ---
 
 <IndexLayout>
@@ -37,7 +69,7 @@ const social = [
     <div class="content" id="content" class="flex flex-col items-center">
       <img src="/svg/logo.svg" alt="Poshaus" id="logo" class="my-8 w-full" />
       <div id="links">
-        <Link href="/illustrations" title="Illustrations" />
+        <Link href="#illustrations" title="Illustrations" />
         <Link href="/tattoos" title="Tattoo designs" />
         <Link href="/games" title="Games" />
         <Link href="/projects" title="Projects" />
@@ -56,6 +88,7 @@ const social = [
       </div>
     </div>
   </main>
+  <IllustrationsGrid columns={illustrationColumns} />
 </IndexLayout>
 
 <style>
@@ -70,7 +103,7 @@ const social = [
     overflow: hidden;
     top: 0;
     width: 100%;
-    z-index: -1;
+    z-index: -20;
   }
 
   #video_background video {
@@ -82,7 +115,7 @@ const social = [
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: -1;
+    z-index: -20;
   }
 
   @keyframes pulse {

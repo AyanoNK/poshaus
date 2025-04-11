@@ -9,7 +9,7 @@ interface Props {
 const { title, columns } = Astro.props;
 ---
 
-<div class="gallery-wrapper">
+<div class="gallery-wrapper tracking-[1.5rem]">
   <h1 class="title">
     {title}
   </h1>
@@ -23,6 +23,7 @@ const { title, columns } = Astro.props;
       width: 100%;
       margin: 0;
       padding: 0;
+      gap: 4rem;
     }
   </style>
 </div>
