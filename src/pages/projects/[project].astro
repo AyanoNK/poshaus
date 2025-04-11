@@ -1,0 +1,41 @@
+---
+import GalleryLayout from "../../layouts/GalleryLayout.astro";
+
+export const prerender = true;
+export function getStaticPaths() {
+  const pages = [
+    {
+      slug: "bestival",
+      title: "BESTIVAL",
+      image: "/img/projects/bestival/square.webp",
+      carrousel: "/img/projects/bestival/carrousel.webp",
+    },
+  ];
+
+  return pages.map((page) => ({
+    params: { project: page.slug },
+    props: {
+      ...page,
+    },
+  }));
+}
+
+const { title, carrousel } = Astro.props;
+---
+
+<GalleryLayout>
+  <div class="text-center pb-16">
+    <h1 class="tracking-[1.5rem]">{title}</h1>
+  </div>
+
+  <div class="overflow-x-auto whitespace-nowrap">
+    <img
+      src={carrousel}
+      srcset={`${carrousel} 120w,
+              ${carrousel} 200w,
+              ${carrousel} 300w`}
+      class="min-w-[150vw] m-auto inline-block"
+      alt={carrousel}
+    />
+  </div>
+</GalleryLayout>

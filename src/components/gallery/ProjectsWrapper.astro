@@ -1,0 +1,25 @@
+---
+import GameGrid from "./GameGrid.astro";
+import ProjectGrid from "./ProjectGrid.astro";
+
+interface ICarrousel {
+  image: string;
+  carrousel: string;
+  slug: string;
+}
+
+interface Props {
+  title: string;
+  columns: ICarrousel[];
+}
+
+const { title, columns } = Astro.props;
+---
+
+<div class="flex flex-col items-center w-full m-0 p-0 gap-16">
+  <h1 class="tracking-[1.5rem]">
+    {title}
+  </h1>
+
+  <ProjectGrid columns={columns} />
+</div>

@@ -1,26 +1,16 @@
 ---
+import ProjectsWrapper from "../components/gallery/ProjectsWrapper.astro";
 import GalleryLayout from "../layouts/GalleryLayout.astro";
+
+const projects = [
+  {
+    slug: "bestival",
+    image: "/img/projects/bestival/square.webp",
+    carrousel: "/img/projects/bestival/carrousel.webp",
+  },
+];
 ---
 
 <GalleryLayout>
-  <h1 class="construction">Cooking<span id="loading_buttons"></span></h1>
+  <ProjectsWrapper title="PROJECTS" columns={projects} />
 </GalleryLayout>
-<script>
-  const loadingButtons = document.getElementById("loading_buttons");
-  setInterval(() => {
-    let oldValue = loadingButtons.innerHTML;
-    let loadingPoints = oldValue.replace(/<span class="dot">/g, "").replace(/<\/span>/g, "");
-    loadingPoints = loadingPoints.length > 3 ? "" : loadingPoints;
-    loadingPoints = loadingPoints.length < 3 ? loadingPoints + "<span class='dot'>.</span>" : "";
-    loadingButtons.innerHTML = loadingPoints;
-  }, 2000);
-</script>
-<style>
-.construction {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 65vh;
-  font-size: 2rem;
-}
-</style>

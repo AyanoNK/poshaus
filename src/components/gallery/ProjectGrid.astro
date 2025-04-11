@@ -1,0 +1,33 @@
+---
+interface ICarrousel {
+  image: string;
+  carrousel: string;
+  slug: string;
+}
+
+interface Props {
+  columns: ICarrousel[];
+}
+
+const { columns } = Astro.props;
+---
+
+<div class="grid grid-cols-3 gap-4">
+  {
+    columns.map((column: ICarrousel) => (
+      <div>
+        <a href={`/projects/${column.slug}`}>
+          <img
+            src={column.image}
+            srcset={`${column.image} 120w,
+                    ${column.image} 200w,
+                    ${column.image} 300w`}
+            class="image"
+            alt={column.image}
+            width={700}
+          />
+        </a>
+      </div>
+    ))
+  }
+</div>
