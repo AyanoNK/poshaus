@@ -46,24 +46,16 @@ const title = "Poshaus";
   }
 
   html {
-    font-family: system-ui, sans-serif;
+    font-family:
+      i system-ui,
+      sans-serif;
     font-size: var(--font-size-base);
     color: var(--color-text);
     background-color: var(--color-bg);
   }
 
   body {
-    margin: 0;
-    padding: 0;
-    font-family: "Gantari";
-  }
-
-  :global(h1) {
-    font-size: var(--font-size-xl);
-  }
-
-  :global(h2) {
-    font-size: var(--font-size-lg);
+    font-family: "Gantari", system-ui, sans-serif;
   }
 
   :global(code) {
@@ -77,36 +69,5 @@ const title = "Poshaus";
       Bitstream Vera Sans Mono,
       Courier New,
       monospace;
-  }
-
-  #github {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    opacity: 0.33;
-  }
-
-  #tooltip {
-    position: relative;
-  }
-
-  #tooltip:before {
-    position: absolute;
-    display: none;
-    padding: 0.25rem;
-    color: #000;
-    text-align: center;
-    transform: translateY(-100%);
-    font-size: 0.75rem;
-    content: attr(data-text);
-  }
-
-  #tooltip:hover:before {
-    display: inline-flex;
-  }
-
-  #gitcat {
-    height: 3rem;
   }
 </style>
