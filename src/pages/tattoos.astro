@@ -1,6 +1,8 @@
 ---
 import GalleryWrapper from "../components/gallery/GalleryWrapper.astro";
+import ImageGrid from "../components/gallery/ImageGrid.astro";
 import GalleryLayout from "../layouts/GalleryLayout.astro";
+import ContentWrapperLayout from "../layouts/wrappers/ContentWrapperLayout.astro";
 
 const tattooColumns = [
   [
@@ -34,7 +36,6 @@ const tattooColumns = [
 ];
 ---
 
-<GalleryLayout>
-  <GalleryWrapper columns={tattooColumns} title="TATTOO DESIGNS" />
-</GalleryLayout>
-<style></style>
+<ContentWrapperLayout title="TATTOO DESIGNS">
+  <ImageGrid columns={tattooColumns} />
+</ContentWrapperLayout>
