@@ -1,13 +1,18 @@
 ---
 interface Props {
   invert?: boolean;
+  class?: string;
 }
 
 const { invert } = Astro.props;
+
 const transformValue = invert ? "scaleY(-1)" : "scaleY(1)";
 ---
 
-<div id="green-wave-container" class={`w-full overflow-hidden`}>
+<div
+  id="green-wave-container"
+  class={`w-full overflow-hidden ${Astro.props.class}`}
+>
   <div id="green-wave"></div>
 </div>
 <style define:vars={{ transformValue }}>
