@@ -8,10 +8,17 @@ export function getStaticPaths() {
     {
       slug: "bestival",
       title: "Bestival",
+      redirect: null,
     },
     {
       slug: "bili",
       title: "Bili",
+      redirect: null,
+    },
+    {
+      slug: "magic_markers",
+      title: "Magic Markers",
+      redirect: "https://www.youtube.com/@MagicMarkersPro/videos",
     },
   ];
 
@@ -25,20 +32,40 @@ export function getStaticPaths() {
   }));
 }
 
-const { title, carrousel } = Astro.props;
+const { title, carrousel, redirect } = Astro.props;
 ---
 
 <GalleryLayout title={title.toUpperCase()}>
+  {
+    redirect && (
+      <div class="flex flex-col w-full items-center justify-center gap-4">
+        <span class="text-2xl">Redirecting to an external source...</span>
+        <span class="text-xl">
+          If you are not redirected, please click{" "}
+          <a href={redirect} class="text-darkbluewave">
+            here
+          </a>
+        </span>
+      </div>
+    )
+  }
   <div class="overflow-x-auto whitespace-nowrap w-full">
-    <div class="min-w-max">
+    <div class="min-w-max text-center">
       <img
         src={carrousel}
         srcset={`${carrousel} 120w,
                  ${carrousel} 200w,
                  ${carrousel} 300w`}
         class="h-[35rem] aspect-auto"
-        alt={carrousel}
+        alt="Loading..."
+        onerror="this.style.visibility='hidden'"
       />
     </div>
   </div>
 </GalleryLayout>
+
+<script is:inline define:vars={{ redirect }}>
+  setTimeout(() => {
+    window.location.href = redirect;
+  }, 1500);
+</script>
