@@ -1,32 +1,32 @@
 ---
-const columns = [
+const illustrationGrid = [
   [
-    "/img/illustrations/narcissus_water_drop_small.webp",
-    "/img/illustrations/Water_dress_print.webp",
-    "/img/illustrations/giorno_question_mark.webp",
-    "/img/illustrations/warhammer_paladin.webp",
-    "/img/illustrations/fox_girl.webp",
-    "/img/illustrations/tiger_linked_ingirl.webp",
-    "/img/illustrations/agua1.webp",
-    "/img/illustrations/poshaus_con_chica_black.webp",
+    "narcissus_water_drop_small",
+    "Water_dress_print",
+    "giorno_question_mark",
+    "warhammer_paladin",
+    "fox_girl",
+    "tiger_linked_ingirl",
+    "agua1",
+    "poshaus_con_chica_black",
   ],
   [
-    "/img/illustrations/Knight_sleepingsmall.webp",
-    "/img/illustrations/Chica_le_da_el_sol_insta.webp",
-    "/img/illustrations/new_year_dragon.webp",
-    "/img/illustrations/front_chica_chest_tattoo2_3.webp",
-    "/img/illustrations/virgo_the_virrgin.webp",
-    "/img/illustrations/agua3.webp",
-    "/img/illustrations/agua4.webp",
+    "Knight_sleepingsmall",
+    "Chica_le_da_el_sol_insta",
+    "new_year_dragon",
+    "front_chica_chest_tattoo2_3",
+    "virgo_the_virrgin",
+    "agua3",
+    "agua4",
   ],
   [
-    "/img/illustrations/sunmansmall.webp",
-    "/img/illustrations/lady_lake_rgb.webp",
-    "/img/illustrations/magik.webp",
-    "/img/illustrations/ramen_soup_big.webp",
-    "/img/illustrations/paper_hair.webp",
-    "/img/illustrations/fondo_agua.webp",
-    "/img/illustrations/haku_2.webp",
+    "sunmansmall",
+    "lady_lake_rgb",
+    "magik",
+    "ramen_soup_big",
+    "paper_hair",
+    "fondo_agua",
+    "haku_2",
   ],
 ];
 ---
@@ -39,19 +39,50 @@ const columns = [
     class="grid grid-cols-3 justify-center justify-items-center gap-4 w-full m-0"
   >
     {
-      columns.map((column) => (
+      illustrationGrid.map((column) => (
         <div class="flex flex-col w-full gap-4">
           {column.map((image) => (
             <div class="image-container">
-              <img
-                src={image}
-                srcset={`${image} 120w,
-                  ${image} 200w,
-                  ${image} 300w`}
+              <picture
                 class="image"
-                alt={image}
-                width={100}
-              />
+                onerror="this.style.visibility='hidden'"
+                onload="this.style.visibility='visible'"
+              >
+                <source
+                  id="source_640"
+                  srcset={`img/illustrations/${image}_640.webp`}
+                  type="image/webp"
+                  media="(max-width: 640px)"
+                />
+                <source
+                  id="source_768"
+                  srcset={`img/illustrations/${image}_768.webp`}
+                  type="image/webp"
+                  media="(max-width: 768px)"
+                />
+                <source
+                  id="source_1024"
+                  srcset={`img/illustrations/${image}_1024.webp`}
+                  type="image/webp"
+                  media="(max-width: 1024px)"
+                />
+                <source
+                  id="source_1280"
+                  srcset={`img/illustrations/${image}_1280.webp 1280w`}
+                  type="image/webp"
+                  media="(max-width: 1280px)"
+                />
+
+                <img
+                  src={`img/illustrations/${image}_1536.webp`}
+                  loading="lazy"
+                  decoding="async"
+                  class="image"
+                  onload="this.style.visibility='visible'"
+                  alt={image}
+                  width={100}
+                />
+              </picture>
             </div>
           ))}
         </div>
@@ -96,13 +127,17 @@ const columns = [
   }
 
   .image {
-    width: 100%;
+    width: 105%;
     height: auto;
+    -webkit-backface-visibility: hidden;
+    -ms-transform: translateZ(0); /* IE 9 */
+    -webkit-transform: translateZ(0); /* Chrome, Safari, Opera */
+    transform: translateZ(0);
     transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99);
     border-radius: 0.15rem;
   }
   .image:is(:hover) {
     will-change: transform;
-    transform: scale(1.05);
+    transform: scale(1.04);
   }
 </style>
