@@ -24,14 +24,17 @@ const games = [
 ---
 
 <GalleryLayout title="GAMES">
-  <h2 class="text-2xl text-center font-semibold">
-    To play the games visit our <a
-      class="text-darkbluewave"
-      href="https://studio904.itch.io/"
-      target="_blank">itch.io</a
-    >
-    page or click on the name of the project
-  </h2>
-  <GameGrid columns={games} />
+  <div class="flex flex-col gap-4 items-center justify-center">
+    <h2 class="text-2xl text-center font-semibold">
+      To play the games visit our <a
+        class="text-darkbluewave"
+        href="https://studio904.itch.io/"
+        target="_blank">itch.io</a
+      >
+      page or click on the name of the project
+    </h2>
+
+    <GameGrid columns={games} />
+  </div>
 </GalleryLayout>
 <style></style>
