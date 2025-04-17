@@ -6,11 +6,14 @@ const projects = [
   {
     slug: "bestival",
     image: "/img/projects/bestival/square.webp",
-    carrousel: "/img/projects/bestival/carrousel.webp",
+  },
+  {
+    slug: "bili",
+    image: "/img/projects/bili/square.webp",
   },
 ];
 ---
 
-<GalleryLayout>
-  <ProjectsWrapper title="PROJECTS" columns={projects} />
+<GalleryLayout title="PROJECTS">
+  <ProjectsWrapper columns={projects} />
 </GalleryLayout>
