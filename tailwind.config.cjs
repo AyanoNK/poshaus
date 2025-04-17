@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         bluewave: "#63e1da",
         opaquebluewave: "#63e1da80",
+        darkbluewave: "#47a39f",
         greenwave: "#00CC99",
         opaquegreenwave: "#00CC9980",
       },
