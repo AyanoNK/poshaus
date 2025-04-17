@@ -14,33 +14,14 @@ interface Props {
 const { columns } = Astro.props;
 ---
 
-<div class="gallery-wrapper">
-  <h2>
+<div id="gallery-wrapper" class="flex flex-col items-center w-full m-0">
+  <h2 class="text-2xl text-center font-semibold">
     To play the games visit our <a
-      class="itchio"
+      class="text-darkbluewave"
       href="https://studio904.itch.io/"
       target="_blank">itch.io</a
     >
     page or click on the name of the project
   </h2>
   <GameGrid columns={columns} />
-  <style>
-    .gallery-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      margin: 0;
-      padding: 1rem;
-    }
-  </style>
 </div>
-<style>
-  h2 {
-    font-weight: 600;
-    text-align: center;
-  }
-  .itchio {
-    color: #47a39f;
-  }
-</style>
