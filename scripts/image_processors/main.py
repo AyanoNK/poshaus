@@ -13,7 +13,8 @@ def rename_original_image(image_path):
     # check if the image is already renamed
     original_image_filename = os.path.splitext(image_path)[0] + "_original.webp"
     print(f"Renaming image {image_path} to {original_image_filename}")
-    if os.path.exists(original_image_filename):
+    # examine specific path
+    if "original" in image_path:
         print(f"Image {original_image_filename} already exists. Skipping.")
         return
 
@@ -53,6 +54,7 @@ def resize_images_in_directory(directory, max_size):
             print(f"Image {filename} already resized. Skipping.")
             continue
 
+        # get absolute path of the image
         image_path = os.path.join(directory, filename)
 
         resize_image(image_path, max_size)
