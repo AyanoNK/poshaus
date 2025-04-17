@@ -1,5 +1,5 @@
 ---
-import GameWrapper from "../components/gallery/GameWrapper.astro";
+import GameGrid from "../components/gallery/GameGrid.astro";
 import GalleryLayout from "../layouts/GalleryLayout.astro";
 
 const games = [
@@ -24,6 +24,14 @@ const games = [
 ---
 
 <GalleryLayout title="GAMES">
-  <GameWrapper columns={games} />
+  <h2 class="text-2xl text-center font-semibold">
+    To play the games visit our <a
+      class="text-darkbluewave"
+      href="https://studio904.itch.io/"
+      target="_blank">itch.io</a
+    >
+    page or click on the name of the project
+  </h2>
+  <GameGrid columns={games} />
 </GalleryLayout>
 <style></style>
