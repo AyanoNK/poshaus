@@ -1,5 +1,5 @@
 ---
-import ProjectsWrapper from "../components/gallery/ProjectsWrapper.astro";
+import ProjectGrid from "../components/gallery/ProjectGrid.astro";
 import GalleryLayout from "../layouts/GalleryLayout.astro";
 
 const projects = [
@@ -11,9 +11,13 @@ const projects = [
     slug: "bili",
     image: "/img/projects/bili/square.webp",
   },
+  {
+    slug: "magic_markers",
+    image: "/img/projects/magic_markers/square.webp",
+  },
 ];
 ---
 
 <GalleryLayout title="PROJECTS">
-  <ProjectsWrapper columns={projects} />
+  <ProjectGrid columns={projects} />
 </GalleryLayout>
