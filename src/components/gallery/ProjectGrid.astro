@@ -1,7 +1,6 @@
 ---
 interface ICarrousel {
   image: string;
-  carrousel: string;
   slug: string;
 }
 
@@ -12,7 +11,7 @@ interface Props {
 const { columns } = Astro.props;
 ---
 
-<div class="grid grid-cols-3 gap-4">
+<div class="grid grid-col-start-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
   {
     columns.map((column: ICarrousel) => (
       <div>
