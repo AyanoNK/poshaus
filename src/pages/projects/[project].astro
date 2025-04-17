@@ -65,7 +65,9 @@ const { title, carrousel, redirect } = Astro.props;
 </GalleryLayout>
 
 <script is:inline define:vars={{ redirect }}>
-  setTimeout(() => {
-    window.location.href = redirect;
-  }, 1500);
+  if (redirect) {
+    setTimeout(() => {
+      window.location.href = redirect;
+    }, 1500);
+  }
 </script>
