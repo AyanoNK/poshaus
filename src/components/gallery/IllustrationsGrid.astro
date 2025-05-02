@@ -33,10 +33,10 @@ const illustrationGrid = [
 
 <div
   id="illustrations"
-  class="relative flex flex-col items-center p-4 bg-[#63e1da] bg-opacity-50 scroll-smooth"
+  class="relative flex flex-col items-center p-4 xl:p-10 bg-[#63e1da] bg-opacity-50 scroll-smooth"
 >
   <div
-    class="grid grid-cols-3 justify-center justify-items-center gap-4 w-full m-0"
+    class="grid grid-cols-3 justify-center justify-items-center gap-6 w-full m-0"
   >
     {
       illustrationGrid.map((column) => (
@@ -136,8 +136,11 @@ const illustrationGrid = [
     transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99);
     border-radius: 0.15rem;
   }
-  .image:is(:hover) {
-    will-change: transform;
-    transform: scale(1.04);
+
+  @media (min-width: 576px) {
+    .image:is(:hover) {
+      will-change: transform;
+      transform: scale(1.04);
+    }
   }
 </style>
