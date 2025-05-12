@@ -40,7 +40,7 @@ const illustrationGrid = [
   >
     {
       illustrationGrid.map((column) => (
-        <div class="flex flex-col w-full gap-4">
+        <div class="flex flex-col w-full gap-6">
           {column.map((image) => (
             <div class="image-container">
               <picture
@@ -141,6 +141,7 @@ const illustrationGrid = [
     .image:is(:hover) {
       will-change: transform;
       transform: scale(1.04);
+      z-index: 10;
     }
   }
 </style>
