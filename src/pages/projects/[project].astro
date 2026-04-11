@@ -65,7 +65,7 @@ const { title, carrousel, redirect } = Astro.props;
 </GalleryLayout>
 
 <script is:inline define:vars={{ redirect }}>
-  if (redirect) {
+  if (redirect && redirect.startsWith("https://")) {
     setTimeout(() => {
       window.location.href = redirect;
     }, 1500);
