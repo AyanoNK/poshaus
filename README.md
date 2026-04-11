@@ -1,36 +1,61 @@
 # Poshaus
 
-Check out the live website at [https://poshaus.art/](https://poshaus.art/).
+Personal portfolio and art website built with Astro and React, deployed on Vercel.
+
+## Tech Stack
+
+- **[Astro 6](https://astro.build/)** — full SSR with `@astrojs/vercel` adapter
+- **[React 19](https://react.dev/)** — interactive client-side components
+- **[Tailwind CSS v4](https://tailwindcss.com/)** — styling via `@tailwindcss/vite` plugin
+- **[Vercel](https://vercel.com/)** — hosting and deployment
+
+## Pages
+
+| Route | Description |
+|-------|-------------|
+| `/` | Home page |
+| `/projects` | Projects gallery |
+| `/projects/[project]` | Individual project detail |
+| `/games` | Games gallery |
+| `/tattoos` | Tattoo art gallery |
+| `/store` | Store page |
+| `/ticket` | Ticket page |
 
 ## Project Structure
 
 ```
-/
-├── public/
-│   └── favicon.ico
-├── src/
-│   ├── components/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+├── components/
+│   ├── gallery/         # Grid components (projects, games, illustrations, images)
+│   ├── BlueWave.astro   # Animated wave SVG elements
+│   ├── GreenWave.astro
+│   ├── WavedHeader.astro
+│   ├── Card.astro
+│   ├── Footer.astro
+│   └── ...
+├── layouts/
+│   ├── MainLayout.astro     # Base HTML shell
+│   ├── IndexLayout.astro    # Home page layout
+│   └── GalleryLayout.astro  # Gallery pages with animated wave headers
+├── pages/                   # File-based routing
+└── styles/
+    └── global.css           # Tailwind theme with custom colors
+public/
+├── fonts/
+├── img/
+├── svg/
+└── video/
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Development
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components or layouts.
+```bash
+pnpm install   # Install dependencies
+pnpm dev       # Start dev server on localhost:3000
+pnpm build     # Production build
+pnpm preview   # Preview production build
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+## License
 
-## Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                | Action                                             |
-| :--------------------- | :------------------------------------------------- |
-| `npm install`          | Installs dependencies                              |
-| `npm run dev`          | Starts local dev server at `localhost:3000`        |
-| `npm run build`        | Build your production site to `./dist/`            |
-| `npm run preview`      | Preview your build locally, before deploying       |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
-| `npm run astro --help` | Get help using the Astro CLI                       |
+All rights reserved.
