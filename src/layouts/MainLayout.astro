@@ -14,6 +14,20 @@ const title = "Poshaus";
     <meta name="description" content="POSHAUS - Illustrator portfolio" />
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Gantari&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Gantari&display=swap"
+      />
+    </noscript>
     <title>{title}</title>
   </head>
   <body>
@@ -21,7 +35,6 @@ const title = "Poshaus";
   </body>
 </html>
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Gantari&display=swap");
   :root {
     --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
     --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
