@@ -1,32 +1,32 @@
 ---
 const illustrationGrid = [
   [
-    "narcissus_water_drop_small",
-    "Water_dress_print",
-    "giorno_question_mark",
-    "warhammer_paladin",
-    "fox_girl",
-    "tiger_linked_ingirl",
-    "agua1",
-    "poshaus_con_chica_black",
+    { name: "narcissus_water_drop_small", width: 1086, height: 1536 },
+    { name: "Water_dress_print", width: 1280, height: 1536 },
+    { name: "giorno_question_mark", width: 1536, height: 1536 },
+    { name: "warhammer_paladin", width: 1280, height: 1536 },
+    { name: "fox_girl", width: 1318, height: 1536 },
+    { name: "tiger_linked_ingirl", width: 1536, height: 384 },
+    { name: "agua1", width: 864, height: 1536 },
+    { name: "poshaus_con_chica_black", width: 1307, height: 1536 },
   ],
   [
-    "Knight_sleepingsmall",
-    "Chica_le_da_el_sol_insta",
-    "new_year_dragon",
-    "front_chica_chest_tattoo2_3",
-    "virgo_the_virrgin",
-    "agua3",
-    "agua4",
+    { name: "Knight_sleepingsmall", width: 1536, height: 1536 },
+    { name: "Chica_le_da_el_sol_insta", width: 1080, height: 1350 },
+    { name: "new_year_dragon", width: 1536, height: 512 },
+    { name: "front_chica_chest_tattoo2_3", width: 1449, height: 1449 },
+    { name: "virgo_the_virrgin", width: 864, height: 1536 },
+    { name: "agua3", width: 864, height: 1536 },
+    { name: "agua4", width: 864, height: 1536 },
   ],
   [
-    "sunmansmall",
-    "lady_lake_rgb",
-    "magik",
-    "ramen_soup_big",
-    "paper_hair",
-    "fondo_agua",
-    "haku_2",
+    { name: "sunmansmall", width: 1112, height: 1536 },
+    { name: "lady_lake_rgb", width: 1280, height: 1536 },
+    { name: "magik", width: 1536, height: 1536 },
+    { name: "ramen_soup_big", width: 1536, height: 1459 },
+    { name: "paper_hair", width: 1098, height: 1536 },
+    { name: "fondo_agua", width: 864, height: 1536 },
+    { name: "haku_2", width: 1012, height: 1536 },
   ],
 ];
 ---
@@ -50,37 +50,38 @@ const illustrationGrid = [
               >
                 <source
                   id="source_640"
-                  srcset={`img/illustrations/${image}_640.webp`}
+                  srcset={`img/illustrations/${image.name}_640.webp`}
                   type="image/webp"
                   media="(max-width: 640px)"
                 />
                 <source
                   id="source_768"
-                  srcset={`img/illustrations/${image}_768.webp`}
+                  srcset={`img/illustrations/${image.name}_768.webp`}
                   type="image/webp"
                   media="(max-width: 768px)"
                 />
                 <source
                   id="source_1024"
-                  srcset={`img/illustrations/${image}_1024.webp`}
+                  srcset={`img/illustrations/${image.name}_1024.webp`}
                   type="image/webp"
                   media="(max-width: 1024px)"
                 />
                 <source
                   id="source_1280"
-                  srcset={`img/illustrations/${image}_1280.webp 1280w`}
+                  srcset={`img/illustrations/${image.name}_1280.webp 1280w`}
                   type="image/webp"
                   media="(max-width: 1280px)"
                 />
 
                 <img
-                  src={`img/illustrations/${image}_1536.webp`}
+                  src={`img/illustrations/${image.name}_1536.webp`}
                   loading="lazy"
                   decoding="async"
                   class="image"
                   onload="this.style.visibility='visible'"
-                  alt={image}
-                  width={100}
+                  alt={image.name}
+                  width={image.width}
+                  height={image.height}
                 />
               </picture>
             </div>
