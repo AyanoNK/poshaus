@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bluewave: #63e1da;
+  --color-opaquebluewave: #63e1da80;
+  --color-darkbluewave: #47a39f;
+  --color-greenwave: #00CC99;
+  --color-opaquegreenwave: #00CC9980;
+}
