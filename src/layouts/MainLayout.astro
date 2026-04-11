@@ -34,7 +34,7 @@ const title = "Poshaus";
     <slot />
   </body>
 </html>
-<style>
+<style is:inline>
   :root {
     --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
     --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
@@ -59,7 +59,7 @@ const title = "Poshaus";
     font-family: "Gantari", system-ui, sans-serif;
   }
 
-  :global(code) {
+  code {
     font-family:
       "Gantari",
       Menlo,
