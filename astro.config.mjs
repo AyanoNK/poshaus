@@ -6,7 +6,10 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   adapter: vercel(),
   redirects: {
-    "/store": "https://everpress.com/profile/poshaus",
+    "/store": {
+      status: 302,
+      destination: "https://everpress.com/profile/poshaus",
+    },
     "/projects/magic_markers":
       "https://www.youtube.com/@MagicMarkersPro/videos",
   },
