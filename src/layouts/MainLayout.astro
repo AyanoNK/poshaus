@@ -1,4 +1,5 @@
 ---
+import { Font } from "astro:assets";
 import "../styles/global.css";
 
 interface Props {
@@ -18,20 +19,7 @@ const { title, description = "POSHAUS - Illustrator portfolio" } = Astro.props;
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Gantari&display=swap"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Gantari&display=swap"
-      />
-    </noscript>
+    <Font cssVariable="--font-gantari" preload />
     <title>{title ? `${title} | Poshaus` : "Poshaus"}</title>
   </head>
   <body>

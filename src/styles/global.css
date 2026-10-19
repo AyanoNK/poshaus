@@ -25,5 +25,5 @@ html {
 }
 
 body {
-  font-family: "Gantari", system-ui, sans-serif;
+  font-family: var(--font-gantari);
 }
