@@ -1,9 +1,12 @@
 ---
 import "../styles/global.css";
 
-export interface Props {}
+interface Props {
+  title?: string;
+  description?: string;
+}
 
-const title = "Poshaus";
+const { title, description = "POSHAUS - Illustrator portfolio" } = Astro.props;
 ---
 
 <!doctype html>
@@ -11,7 +14,7 @@ const title = "Poshaus";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="POSHAUS - Illustrator portfolio" />
+    <meta name="description" content={description} />
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
@@ -29,7 +32,7 @@ const title = "Poshaus";
         href="https://fonts.googleapis.com/css2?family=Gantari&display=swap"
       />
     </noscript>
-    <title>{title}</title>
+    <title>{title ? `${title} | Poshaus` : "Poshaus"}</title>
   </head>
   <body>
     <slot />

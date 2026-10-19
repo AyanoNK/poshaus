@@ -27,7 +27,7 @@ export function getStaticPaths() {
 const { title, carrousel } = Astro.props;
 ---
 
-<GalleryLayout title={title.toUpperCase()}>
+<GalleryLayout title={title}>
   <div class="overflow-x-auto whitespace-nowrap w-full">
     <div class="min-w-max text-center">
       <img
