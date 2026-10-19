@@ -3,25 +3,8 @@ import IndexLayout from "../layouts/IndexLayout.astro";
 import Link from "../components/Link.astro";
 import SocialLink from "../components/SocialLink.astro";
 import IllustrationsGrid from "../components/gallery/IllustrationsGrid.astro";
+import { SOCIAL_LINKS } from "../consts";
 
-const social = [
-  {
-    name: "instagram",
-    url: "https://www.instagram.com/poshaus/",
-  },
-  {
-    name: "behance",
-    url: "https://www.behance.net/poshaus",
-  },
-  {
-    name: "twitter",
-    url: "https://twitter.com/DrColdy",
-  },
-  {
-    name: "email",
-    url: "mailto:jr.chand204@gmail.com",
-  },
-];
 ---
 
 <IndexLayout>
@@ -53,11 +36,11 @@ const social = [
         <Link href="/store" title="Store" target="_blank" />
         <div id="social" class="flex flex-row flex-nowrap justify-between">
           {
-            social.map((link) => (
+            SOCIAL_LINKS.map((link) => (
               <SocialLink
                 href={link.url}
                 svg={`/svg/${link.name}.svg`}
-                alt={link.name}
+                alt={link.label}
               />
             ))
           }
