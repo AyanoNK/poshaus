@@ -1,11 +1,10 @@
 # Poshaus
 
-Personal portfolio and art website built with Astro and React, deployed on Vercel.
+Personal portfolio and art website built with Astro, deployed on Vercel.
 
 ## Tech Stack
 
 - **[Astro 6](https://astro.build/)** — full SSR with `@astrojs/vercel` adapter
-- **[React 19](https://react.dev/)** — interactive client-side components
 - **[Tailwind CSS v4](https://tailwindcss.com/)** — styling via `@tailwindcss/vite` plugin
 - **[Vercel](https://vercel.com/)** — hosting and deployment
 
