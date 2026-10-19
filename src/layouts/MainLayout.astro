@@ -1,9 +1,13 @@
 ---
+import { Font } from "astro:assets";
 import "../styles/global.css";
 
-export interface Props {}
+interface Props {
+  title?: string;
+  description?: string;
+}
 
-const title = "Poshaus";
+const { title, description = "POSHAUS - Illustrator portfolio" } = Astro.props;
 ---
 
 <!doctype html>
@@ -11,64 +15,14 @@ const title = "Poshaus";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="POSHAUS - Illustrator portfolio" />
+    <meta name="description" content={description} />
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Gantari&display=swap"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Gantari&display=swap"
-      />
-    </noscript>
-    <title>{title}</title>
+    <Font cssVariable="--font-gantari" preload />
+    <title>{title ? `${title} | Poshaus` : "Poshaus"}</title>
   </head>
   <body>
     <slot />
   </body>
 </html>
-<style is:inline>
-  :root {
-    --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-    --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-    --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
-
-    --color-text: hsl(12, 5%, 4%);
-    --color-bg: hsl(10, 21%, 95%);
-    --color-border: hsl(17, 24%, 90%);
-    --github-tooltip-gradient: linear-gradient(0deg, gray, black);
-  }
-
-  html {
-    font-family:
-      i system-ui,
-      sans-serif;
-    font-size: var(--font-size-base);
-    color: var(--color-text);
-    background-color: var(--color-bg);
-  }
-
-  body {
-    font-family: "Gantari", system-ui, sans-serif;
-  }
-
-  code {
-    font-family:
-      "Gantari",
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
-  }
-</style>

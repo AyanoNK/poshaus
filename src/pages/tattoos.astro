@@ -1,39 +1,116 @@
 ---
+import type { ImageMetadata } from "astro";
 import ImageGrid from "../components/gallery/ImageGrid.astro";
 import GalleryLayout from "../layouts/GalleryLayout.astro";
 
+const images = import.meta.glob<ImageMetadata>("../assets/tattoos/*.webp", {
+  eager: true,
+  import: "default",
+});
+
+const tattoo = (file: string, alt: string) => ({
+  src: images[`../assets/tattoos/${file}`],
+  alt,
+});
+
 const tattooColumns = [
   [
-    "/img/tattoos/applecore4.webp",
-    "/img/tattoos/Crow_BnW4.webp",
-    "/img/tattoos/demiurge_Recovered2.webp",
-    "/img/tattoos/Dragon_taxxi_color1.webp",
-    "/img/tattoos/floral_band_new_3.webp",
-    "/img/tattoos/fox_minimalistic2.webp",
-    "/img/tattoos/geisha3.webp",
-    "/img/tattoos/Lakota_sioux_headress2.webp",
+    tattoo(
+      "applecore4.webp",
+      "Tattoo design of a heart, apple core, swallows, and Mother Son banners",
+    ),
+    tattoo(
+      "Crow_BnW4.webp",
+      "Tattoo design of a crow on a leafy branch in three shading styles",
+    ),
+    tattoo(
+      "demiurge_Recovered2.webp",
+      "Tattoo design of a black and grey sleeve with lion, serpent, and runes",
+    ),
+    tattoo(
+      "Dragon_taxxi_color1.webp",
+      "Tattoo design of a red winged dragon with a teal belly",
+    ),
+    tattoo(
+      "floral_band_new_3.webp",
+      "Tattoo design of a fine line floral vine with butterflies and a dragonfly",
+    ),
+    tattoo(
+      "fox_minimalistic2.webp",
+      "Tattoo design of a minimal line art fox sitting with its tail curled",
+    ),
+    tattoo(
+      "geisha3.webp",
+      "Tattoo design of a geisha holding a katana that reveals half a skull",
+    ),
+    tattoo(
+      "Lakota_sioux_headress2.webp",
+      "Tattoo design of a wolf and skull with feathered headdress and axes",
+    ),
   ],
   [
-    "/img/tattoos/Gothic_creepy2.webp",
-    "/img/tattoos/horror_half.webp",
-    "/img/tattoos/Itachi_kunai1.webp",
-    "/img/tattoos/Kali_durga_cards.webp",
-    "/img/tattoos/Knight_lapiz9.webp",
-    "/img/tattoos/KnY_waves_kanji_2.webp",
+    tattoo(
+      "Gothic_creepy2.webp",
+      "Tattoo design of a gothic woman with horns, a third eye, and red veins",
+    ),
+    tattoo(
+      "horror_half.webp",
+      "Tattoo design of a crowned woman's face melting into eyes and fangs",
+    ),
+    tattoo(
+      "Itachi_kunai1.webp",
+      "Tattoo design of Itachi Uchiha inside a kunai with red Akatsuki clouds",
+    ),
+    tattoo(
+      "Kali_durga_cards.webp",
+      "Tattoo design of Durga and Kali as a mirrored playing card",
+    ),
+    tattoo(
+      "Knight_lapiz9.webp",
+      "Tattoo design of a hooded rider with a sword on a brown horse",
+    ),
+    tattoo(
+      "KnY_waves_kanji_2.webp",
+      "Tattoo design of blue water waves wrapped around vertical kanji",
+    ),
   ],
   [
-    "/img/tattoos/Lion_headress2.webp",
-    "/img/tattoos/mermaid_goth2.webp",
-    "/img/tattoos/Mileena3.webp",
-    "/img/tattoos/Oni_tattoo.webp",
-    "/img/tattoos/owl_NT.webp",
-    "/img/tattoos/phoenix_aries5.webp",
-    "/img/tattoos/sun_and_moon_mountains_water1.webp",
-    "/img/tattoos/Kraken_boat4.webp",
+    tattoo(
+      "Lion_headress2.webp",
+      "Tattoo design of a lioness wearing a feathered headdress and red war paint",
+    ),
+    tattoo(
+      "mermaid_goth2.webp",
+      "Tattoo design of a tattooed purple-haired mermaid wrapped around an anchor",
+    ),
+    tattoo(
+      "Mileena3.webp",
+      "Tattoo design of Mileena with crossed arms holding two sai daggers",
+    ),
+    tattoo(
+      "Oni_tattoo.webp",
+      "Tattoo design of a red three-eyed oni mask with horns and tusks",
+    ),
+    tattoo(
+      "owl_NT.webp",
+      "Tattoo design of a barn owl on a crescent moon with mushrooms",
+    ),
+    tattoo(
+      "phoenix_aries5.webp",
+      "Tattoo design of a red phoenix rising from flames shaped like a ram",
+    ),
+    tattoo(
+      "sun_and_moon_mountains_water1.webp",
+      "Tattoo design of a sun and crescent moon face with mountains and waves",
+    ),
+    tattoo(
+      "Kraken_boat4.webp",
+      "Tattoo design of a green kraken gripping a sailing ship and compass",
+    ),
   ],
 ];
 ---
 
-<GalleryLayout title="TATTOO DESIGNS">
+<GalleryLayout title="Tattoo designs">
   <ImageGrid columns={tattooColumns} />
 </GalleryLayout>

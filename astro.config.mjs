@@ -1,13 +1,28 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 import vercel from "@astrojs/vercel";
-import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "server",
   adapter: vercel(),
-  integrations: [react()],
+  redirects: {
+    "/store": {
+      status: 302,
+      destination: "https://everpress.com/profile/poshaus",
+    },
+    "/projects/magic_markers":
+      "https://www.youtube.com/@MagicMarkersPro/videos",
+  },
+  fonts: [
+    {
+      provider: fontProviders.google(),
+      name: "Gantari",
+      cssVariable: "--font-gantari",
+      weights: [400],
+      styles: ["normal"],
+      fallbacks: ["system-ui", "sans-serif"],
+    },
+  ],
   build: {
     inlineStylesheets: "always",
   },

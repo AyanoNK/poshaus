@@ -3,25 +3,7 @@ import IndexLayout from "../layouts/IndexLayout.astro";
 import Link from "../components/Link.astro";
 import SocialLink from "../components/SocialLink.astro";
 import IllustrationsGrid from "../components/gallery/IllustrationsGrid.astro";
-
-const social = [
-  {
-    name: "instagram",
-    url: "https://www.instagram.com/poshaus/",
-  },
-  {
-    name: "behance",
-    url: "https://www.behance.net/poshaus",
-  },
-  {
-    name: "twitter",
-    url: "https://twitter.com/DrColdy",
-  },
-  {
-    name: "email",
-    url: "mailto:jr.chand204@gmail.com",
-  },
-];
+import { SOCIAL_LINKS } from "../consts";
 ---
 
 <IndexLayout>
@@ -43,8 +25,16 @@ const social = [
     id="container"
     class="flex items-center justify-center min-h-screen w-full"
   >
-    <div class="content" id="content" class="flex flex-col items-center">
-      <img src="/svg/logo.svg" alt="Poshaus" id="logo" class="my-8 w-full" fetchpriority="high" width="462" height="113" />
+    <div class="content" id="content">
+      <img
+        src="/svg/logo.svg"
+        alt="Poshaus"
+        id="logo"
+        class="my-8 w-full"
+        fetchpriority="high"
+        width="462"
+        height="113"
+      />
       <div id="links">
         <Link href="#illustrations" title="Illustrations" />
         <Link href="/tattoos" title="Tattoo designs" />
@@ -52,15 +42,13 @@ const social = [
         <Link href="/projects" title="Projects" />
         <Link href="/store" title="Store" target="_blank" />
         <div id="social" class="flex flex-row flex-nowrap justify-between">
-          {
-            social.map((link) => (
-              <SocialLink
-                href={link.url}
-                svg={`/svg/${link.name}.svg`}
-                alt={link.name}
-              />
-            ))
-          }
+          {SOCIAL_LINKS.map((link) => (
+            <SocialLink
+              href={link.url}
+              svg={`/svg/${link.name}.svg`}
+              alt={link.label}
+            />
+          ))}
         </div>
       </div>
     </div>

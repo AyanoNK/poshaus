@@ -1,36 +1,52 @@
 ---
 import GameGrid from "../components/gallery/GameGrid.astro";
 import GalleryLayout from "../layouts/GalleryLayout.astro";
+import skaryMonstersLogo from "../assets/games/skary_monsters/logo.webp";
+import skaryMonstersConcept from "../assets/games/skary_monsters/concept.webp";
+import backRowSeatersLogo from "../assets/games/back_row_seaters/logo.webp";
+import backRowSeatersConcept from "../assets/games/back_row_seaters/concept.webp";
+import metalClawLogo from "../assets/games/metal_claw/logo.webp";
+import metalClawConcept from "../assets/games/metal_claw/concept.webp";
 
 const games = [
   {
     link: "https://studio904.itch.io/skarymonsters",
-    logo: "/img/games/skary_monsters/logo.webp",
-    concept: "/img/games/skary_monsters/concept.webp",
+    logo: skaryMonstersLogo,
+    logoAlt: "Skary Monsters game logo in dripping green letters",
+    concept: skaryMonstersConcept,
+    conceptAlt:
+      "Skary Monsters concept sheet with devil, zombie, and vampire characters",
   },
   {
     link: "https://studio904.itch.io/backrowseaters",
-
-    logo: "/img/games/back_row_seaters/logo.webp",
-    concept: "/img/games/back_row_seaters/concept.webp",
+    logo: backRowSeatersLogo,
+    logoAlt: "Back Row Seaters game logo in hand-drawn pastel letters",
+    concept: backRowSeatersConcept,
+    conceptAlt:
+      "Back Row Seaters concept sheet of cat students, teacher, and classroom",
   },
   {
     link: "https://studio904.itch.io/metalclaw",
-    logo: "/img/games/metal_claw/logo.webp",
-    concept: "/img/games/metal_claw/concept.webp",
+    logo: metalClawLogo,
+    logoAlt: "Metal Claw game logo in spiky purple metal-style lettering",
+    concept: metalClawConcept,
+    conceptAlt:
+      "Metal Claw concept sheet with pink teddy bear, claw, and rabbit enemy",
   },
 ];
-//FURTHER OPTIMIZE https://bholmes.dev/blog/picture-perfect-image-optimization/
 ---
 
-<GalleryLayout title="GAMES">
+<GalleryLayout title="Games">
   <div class="flex flex-col gap-4 items-center justify-center">
     <h2 class="text-2xl text-center font-semibold">
-      To play the games visit our <a
+      To play the games visit our{" "}
+      <a
         class="text-darkbluewave"
         href="https://studio904.itch.io/"
-        target="_blank">itch.io</a
+        target="_blank"
       >
+        itch.io
+      </a>{" "}
       page or click on the name of the project
     </h2>
 

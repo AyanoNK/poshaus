@@ -1,8 +1,13 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
 interface IGame {
   link: string;
-  logo: string;
-  concept: string;
+  logo: ImageMetadata;
+  logoAlt: string;
+  concept: ImageMetadata;
+  conceptAlt: string;
 }
 
 interface Props {
@@ -12,34 +17,29 @@ const { columns } = Astro.props;
 ---
 
 <div class="grid">
-  {
-    columns.map((column: IGame) => (
-      <a class="column" href={column.link} target="_blank">
-        <div class="logo-container">
-          <img
-            src={column.logo}
-            srcset={`${column.logo} 120w,
-                    ${column.logo} 200w,
-                    ${column.logo} 300w`}
-            class="image"
-            alt={column.logo}
-            width={100}
-          />
-        </div>
-        <div class="concept-container">
-          <img
-            src={column.concept}
-            srcset={`${column.concept} 120w,
-                    ${column.concept} 200w,
-                    ${column.concept} 300w`}
-            class="image"
-            alt={column.concept}
-            width={100}
-          />
-        </div>
-      </a>
-    ))
-  }
+  {columns.map((column, index) => (
+    <a class="column" href={column.link} target="_blank">
+      <div class="logo-container">
+        <Image
+          src={column.logo}
+          alt={column.logoAlt}
+          widths={[320, 640]}
+          sizes="(max-width: 576px) 80vw, (max-width: 768px) 40vw, 27vw"
+          priority={index === 0}
+          class="image"
+        />
+      </div>
+      <div class="concept-container">
+        <Image
+          src={column.concept}
+          alt={column.conceptAlt}
+          widths={[480, 768, 1024]}
+          sizes="(max-width: 576px) 100vw, (max-width: 768px) 50vw, 33vw"
+          class="image"
+        />
+      </div>
+    </a>
+  ))}
 </div>
 <style>
   .grid {

@@ -1,23 +1,19 @@
 ---
-import Social from "../generators/social";
-import FooterLink from "./FooterLink.astro";
 import GreenWave from "./GreenWave.astro";
+import { SOCIAL_LINKS } from "../consts";
+import SocialLink from "./SocialLink.astro";
 ---
 
 <div id="footer" class="relative flex flex-col">
-  <div
-    id="content-container"
-    class="relative flex items-center justify-center pt-16 z-10"
-  >
-    {
-      Social.map((link) => (
-        <FooterLink
-          href={link.url}
-          svg={`/svg/${link.name}.svg`}
-          alt={link.name}
-        />
-      ))
-    }
+  <div class="relative flex items-center justify-center pt-16 z-10">
+    {SOCIAL_LINKS.map((link) => (
+      <SocialLink
+        variant="footer"
+        href={link.url}
+        svg={`/svg/${link.name}.svg`}
+        alt={link.label}
+      />
+    ))}
   </div>
   <GreenWave class="absolute -z-10" />
 </div>

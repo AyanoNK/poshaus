@@ -1,23 +1,11 @@
 ---
 import ProjectGrid from "../components/gallery/ProjectGrid.astro";
 import GalleryLayout from "../layouts/GalleryLayout.astro";
+import { getProjects } from "../lib/projects";
 
-const projects = [
-  {
-    slug: "bestival",
-    image: "/img/projects/bestival/square.webp",
-  },
-  {
-    slug: "bili",
-    image: "/img/projects/bili/square.webp",
-  },
-  {
-    slug: "magic_markers",
-    image: "/img/projects/magic_markers/square.webp",
-  },
-];
+const projects = await getProjects();
 ---
 
-<GalleryLayout title="PROJECTS">
-  <ProjectGrid columns={projects} />
+<GalleryLayout title="Projects">
+  <ProjectGrid projects={projects} />
 </GalleryLayout>

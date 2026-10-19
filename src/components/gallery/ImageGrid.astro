@@ -1,34 +1,32 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
 interface Props {
-  columns: string[][];
+  columns: { src: ImageMetadata; alt: string }[][];
 }
+
 const { columns } = Astro.props;
-// backdrop-blur-lg
 ---
 
-<div id="illustrations" class="relative flex flex-col items-center">
-  <div
-    class="grid grid-cols-3 justify-center justify-items-center gap-4 w-full m-0"
-  >
-    {
-      columns.map((column) => (
-        <div class="flex flex-col w-full gap-4">
-          {column.map((image) => (
-            <div class="image-container">
-              <img
-                src={image}
-                srcset={`${image} 120w,
-                  ${image} 200w,
-                  ${image} 300w`}
-                class="image"
-                alt={image}
-                width={100}
-              />
-            </div>
-          ))}
-        </div>
-      ))
-    }
+<div class="relative flex flex-col items-center">
+  <div class="grid grid-cols-3 justify-center justify-items-center gap-4 w-full m-0">
+    {columns.map((column, columnIndex) => (
+      <div class="flex flex-col w-full gap-4">
+        {column.map((image, imageIndex) => (
+          <div class="image-container">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              widths={[480, 768, 1024]}
+              sizes="(max-width: 576px) 100vw, (max-width: 768px) 50vw, 33vw"
+              priority={columnIndex === 0 && imageIndex === 0}
+              class="image"
+            />
+          </div>
+        ))}
+      </div>
+    ))}
   </div>
 </div>
 

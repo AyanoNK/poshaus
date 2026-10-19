@@ -1,32 +1,111 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+const images = import.meta.glob<ImageMetadata>(
+  "../../assets/illustrations/*.webp",
+  { eager: true, import: "default" },
+);
+
+const illustration = (name: string, alt: string) => ({
+  src: images[`../../assets/illustrations/${name}.webp`],
+  alt,
+});
+
 const illustrationGrid = [
   [
-    { name: "narcissus_water_drop_small", width: 1086, height: 1536 },
-    { name: "Water_dress_print", width: 1280, height: 1536 },
-    { name: "giorno_question_mark", width: 1536, height: 1536 },
-    { name: "warhammer_paladin", width: 1280, height: 1536 },
-    { name: "fox_girl", width: 1318, height: 1536 },
-    { name: "tiger_linked_ingirl", width: 1536, height: 384 },
-    { name: "agua1", width: 864, height: 1536 },
-    { name: "poshaus_con_chica_black", width: 1307, height: 1536 },
+    illustration(
+      "narcissus_water_drop_small",
+      "Illustration of a dark-haired girl falling through water toward pink light",
+    ),
+    illustration(
+      "Water_dress_print",
+      "Illustration of a woman whose flowing dress turns into the sea",
+    ),
+    illustration(
+      "giorno_question_mark",
+      "Illustration of Giorno Giovanna in a pink suit among red flowers",
+    ),
+    illustration(
+      "warhammer_paladin",
+      "Illustration of an armored paladin sitting on a red cape with a spear",
+    ),
+    illustration(
+      "fox_girl",
+      "Illustration of a girl with long blue braids riding a white fox",
+    ),
+    illustration(
+      "tiger_linked_ingirl",
+      "Illustration of a red tiger beside a woman in sunglasses",
+    ),
+    illustration(
+      "agua1",
+      "Illustration of abstract water reflections in orange, blue, and green",
+    ),
+    illustration(
+      "poshaus_con_chica_black",
+      "Illustration of a woman's face among mushrooms under a metal-style logo",
+    ),
   ],
   [
-    { name: "Knight_sleepingsmall", width: 1536, height: 1536 },
-    { name: "Chica_le_da_el_sol_insta", width: 1080, height: 1350 },
-    { name: "new_year_dragon", width: 1536, height: 512 },
-    { name: "front_chica_chest_tattoo2_3", width: 1449, height: 1449 },
-    { name: "virgo_the_virrgin", width: 864, height: 1536 },
-    { name: "agua3", width: 864, height: 1536 },
-    { name: "agua4", width: 864, height: 1536 },
+    illustration(
+      "Knight_sleepingsmall",
+      "Illustration of a woman in silver armor resting among purple flowers",
+    ),
+    illustration(
+      "Chica_le_da_el_sol_insta",
+      "Illustration of a red-haired woman shading her eyes on a yellow background",
+    ),
+    illustration(
+      "new_year_dragon",
+      "Illustration of a teal Chinese dragon among clouds for the New Year",
+    ),
+    illustration(
+      "front_chica_chest_tattoo2_3",
+      "Illustration of a green-skinned woman in a red robe between two herons",
+    ),
+    illustration(
+      "virgo_the_virrgin",
+      "Illustration of a bearded man holding wine on a Virgo zodiac card",
+    ),
+    illustration(
+      "agua3",
+      "Illustration of abstract black swirls over gold contour lines",
+    ),
+    illustration(
+      "agua4",
+      "Illustration of layered waterfalls pouring over stepped stone ledges",
+    ),
   ],
   [
-    { name: "sunmansmall", width: 1112, height: 1536 },
-    { name: "lady_lake_rgb", width: 1280, height: 1536 },
-    { name: "magik", width: 1536, height: 1536 },
-    { name: "ramen_soup_big", width: 1536, height: 1459 },
-    { name: "paper_hair", width: 1098, height: 1536 },
-    { name: "fondo_agua", width: 864, height: 1536 },
-    { name: "haku_2", width: 1012, height: 1536 },
+    illustration(
+      "sunmansmall",
+      "Illustration of a towering figure in black armor with a blue sun head",
+    ),
+    illustration(
+      "lady_lake_rgb",
+      "Illustration of the Lady of the Lake holding a sword among water lilies",
+    ),
+    illustration(
+      "magik",
+      "Illustration of a long-haired blonde girl wielding a giant glowing sword",
+    ),
+    illustration(
+      "ramen_soup_big",
+      "Illustration of a girl with noodle hair sinking into a ramen bowl",
+    ),
+    illustration(
+      "paper_hair",
+      "Illustration of a woman's face with hair made of red paper ribbons",
+    ),
+    illustration(
+      "fondo_agua",
+      "Illustration of abstract teal and blue curves outlined in gold",
+    ),
+    illustration(
+      "haku_2",
+      "Illustration of Haku the white dragon before a red sun",
+    ),
   ],
 ];
 ---
@@ -35,60 +114,22 @@ const illustrationGrid = [
   id="illustrations"
   class="relative flex flex-col items-center p-4 xl:p-10 bg-bluewave/50 scroll-smooth"
 >
-  <div
-    class="grid grid-cols-3 justify-center justify-items-center gap-6 w-full m-0"
-  >
-    {
-      illustrationGrid.map((column) => (
-        <div class="flex flex-col w-full gap-6">
-          {column.map((image) => (
-            <div class="image-container">
-              <picture
-                class="image"
-                onerror="this.style.visibility='hidden'"
-                onload="this.style.visibility='visible'"
-              >
-                <source
-                  id="source_640"
-                  srcset={`img/illustrations/${image.name}_640.webp`}
-                  type="image/webp"
-                  media="(max-width: 640px)"
-                />
-                <source
-                  id="source_768"
-                  srcset={`img/illustrations/${image.name}_768.webp`}
-                  type="image/webp"
-                  media="(max-width: 768px)"
-                />
-                <source
-                  id="source_1024"
-                  srcset={`img/illustrations/${image.name}_1024.webp`}
-                  type="image/webp"
-                  media="(max-width: 1024px)"
-                />
-                <source
-                  id="source_1280"
-                  srcset={`img/illustrations/${image.name}_1280.webp 1280w`}
-                  type="image/webp"
-                  media="(max-width: 1280px)"
-                />
-
-                <img
-                  src={`img/illustrations/${image.name}_1536.webp`}
-                  loading="lazy"
-                  decoding="async"
-                  class="image"
-                  onload="this.style.visibility='visible'"
-                  alt={image.name}
-                  width={image.width}
-                  height={image.height}
-                />
-              </picture>
-            </div>
-          ))}
-        </div>
-      ))
-    }
+  <div class="grid grid-cols-3 justify-center justify-items-center gap-6 w-full m-0">
+    {illustrationGrid.map((column) => (
+      <div class="flex flex-col w-full gap-6">
+        {column.map((image) => (
+          <div class="image-container">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              widths={[640, 768, 1024, 1280, 1536]}
+              sizes="(max-width: 576px) 100vw, (max-width: 768px) 50vw, 33vw"
+              class="image"
+            />
+          </div>
+        ))}
+      </div>
+    ))}
   </div>
 </div>
 
