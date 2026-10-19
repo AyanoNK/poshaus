@@ -1,28 +1,21 @@
 ---
-export interface Props {
-  href: string;
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"a"> {
   svg: string;
   alt: string;
+  variant?: "home" | "footer";
 }
 
-const { href, svg, alt, ...props } = Astro.props as Props;
+const { svg, alt, variant = "home", class: className, ...rest } = Astro.props;
 ---
 
-<a href={href} class="social-card" target="_blank">
-  <img src={svg} alt={alt} {...props} />
+<a class:list={["social-card", variant, className]} target="_blank" {...rest}>
+  <img src={svg} alt={alt} />
 </a>
 <style>
-  :root {
-    --link-gradient: scale(1.05);
-    --square-rem: 2.75rem;
-  }
-
-  img {
-    width: var(--square-rem);
-    height: var(--square-rem);
-  }
-
   .social-card {
+    --square-rem: 2.75rem;
     display: block;
     background-color: transparent;
     color: #ffffff;
@@ -31,11 +24,27 @@ const { href, svg, alt, ...props } = Astro.props as Props;
     text-decoration: none;
     font-weight: 700;
     transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99);
+  }
+
+  .social-card.footer {
+    --square-rem: 2rem;
+  }
+
+  .social-card.home {
     border: solid #ffffff 1px;
   }
 
-  .social-card:not(:last-child) {
+  .social-card.home:not(:last-child) {
     margin-right: 0.25rem;
+  }
+
+  .social-card.footer:not(:last-child) {
+    margin-right: 1rem;
+  }
+
+  img {
+    width: var(--square-rem);
+    height: var(--square-rem);
   }
 
   .social-card:is(:hover) {
