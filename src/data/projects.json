@@ -1,0 +1,37 @@
+[
+  {
+    "id": "bestival",
+    "title": "Bestival",
+    "order": 1,
+    "cover": {
+      "src": "../assets/projects/bestival/square.webp",
+      "alt": "Bestival festival poster of a roaring gorilla with red sunglasses"
+    },
+    "gallery": {
+      "src": "../assets/projects/bestival/carrousel.webp",
+      "alt": "Bestival festival posters, passes, and artist cards with beast characters"
+    }
+  },
+  {
+    "id": "bili",
+    "title": "Bili",
+    "order": 2,
+    "cover": {
+      "src": "../assets/projects/bili/square.webp",
+      "alt": "Bili cover of a curly-haired child with a hearing aid waving"
+    },
+    "gallery": {
+      "src": "../assets/projects/bili/carrousel.webp",
+      "alt": "Bili storybook pages of a curly-haired child playing and celebrating"
+    }
+  },
+  {
+    "id": "magic_markers",
+    "title": "Magic Markers",
+    "order": 3,
+    "cover": {
+      "src": "../assets/projects/magic_markers/square.webp",
+      "alt": "Magic Markers white M logo over a blue river landscape map"
+    }
+  }
+]

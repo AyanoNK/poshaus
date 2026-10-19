@@ -1,40 +1,29 @@
 ---
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 import { Image } from "astro:assets";
 import GalleryLayout from "../../layouts/GalleryLayout.astro";
-import bestivalCarrousel from "../../assets/projects/bestival/carrousel.webp";
-import biliCarrousel from "../../assets/projects/bili/carrousel.webp";
+import { getProjects } from "../../lib/projects";
 
-export function getStaticPaths() {
-  const pages = [
-    {
-      slug: "bestival",
-      title: "Bestival",
-      carrousel: bestivalCarrousel,
-      carrouselAlt: "Bestival festival posters, passes, and artist cards with beast characters",
-    },
-    {
-      slug: "bili",
-      title: "Bili",
-      carrousel: biliCarrousel,
-      carrouselAlt: "Bili storybook pages of a curly-haired child playing and celebrating",
-    },
-  ];
+export const getStaticPaths = (async () => {
+  const projects = await getProjects();
+  return projects.flatMap(({ id, data }) =>
+    data.gallery
+      ? [{ params: { project: id }, props: { title: data.title, gallery: data.gallery } }]
+      : [],
+  );
+}) satisfies GetStaticPaths;
 
-  return pages.map((page) => ({
-    params: { project: page.slug },
-    props: page,
-  }));
-}
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { title, carrousel, carrouselAlt } = Astro.props;
+const { title, gallery } = Astro.props;
 ---
 
 <GalleryLayout title={title}>
   <div class="overflow-x-auto whitespace-nowrap w-full">
     <div class="min-w-max text-center">
       <Image
-        src={carrousel}
-        alt={carrouselAlt}
+        src={gallery.src}
+        alt={gallery.alt}
         height={560}
         densities={[1, 2]}
         priority
@@ -43,4 +32,3 @@ const { title, carrousel, carrouselAlt } = Astro.props;
     </div>
   </div>
 </GalleryLayout>
-

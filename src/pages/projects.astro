@@ -1,29 +1,11 @@
 ---
 import ProjectGrid from "../components/gallery/ProjectGrid.astro";
 import GalleryLayout from "../layouts/GalleryLayout.astro";
-import bestivalSquare from "../assets/projects/bestival/square.webp";
-import biliSquare from "../assets/projects/bili/square.webp";
-import magicMarkersSquare from "../assets/projects/magic_markers/square.webp";
+import { getProjects } from "../lib/projects";
 
-const projects = [
-  {
-    slug: "bestival",
-    image: bestivalSquare,
-    alt: "Bestival festival poster of a roaring gorilla with red sunglasses",
-  },
-  {
-    slug: "bili",
-    image: biliSquare,
-    alt: "Bili cover of a curly-haired child with a hearing aid waving",
-  },
-  {
-    slug: "magic_markers",
-    image: magicMarkersSquare,
-    alt: "Magic Markers white M logo over a blue river landscape map",
-  },
-];
+const projects = await getProjects();
 ---
 
 <GalleryLayout title="Projects">
-  <ProjectGrid columns={projects} />
+  <ProjectGrid projects={projects} />
 </GalleryLayout>
