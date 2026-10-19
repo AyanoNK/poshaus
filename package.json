@@ -1,5 +1,6 @@
 {
   "private": true,
+  "packageManager": "pnpm@12.6.0",
   "scripts": {
     "dev": "astro dev --port 3000",
     "start": "astro dev",
@@ -8,30 +9,21 @@
     "astro": "astro"
   },
   "devDependencies": {
-    "astro": "^6.1.5",
-    "prettier": "3.8.1",
-    "prettier-plugin-astro": "0.14.1",
-    "web-vitals": "^5.1.0"
+    "astro": "^7.4.0",
+    "prettier": "3.9.10",
+    "prettier-plugin-astro": "1.1.1",
+    "web-vitals": "^6.2.3"
   },
   "dependencies": {
-    "@astrojs/react": "^5.0.3",
-    "@astrojs/vercel": "^10.0.4",
-    "@tailwindcss/vite": "^4.2.2",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "@vercel/node": "^5.6.10",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "sharp": "^0.34.5",
-    "tailwindcss": "^4.2.2"
-  },
-  "pnpm": {
-    "overrides": {
-      "json5@>=2.0.0 <2.2.2": ">=2.2.2",
-      "yaml@>=2.0.0-5 <2.2.2": ">=2.2.2",
-      "yaml@>=2.0.0 <2.8.3": ">=2.8.3",
-      "tar@<7.5.11": ">=7.5.11",
-      "undici@>=6.0.0 <6.24.0": ">=6.24.0"
-    }
+    "@astrojs/react": "^7.1.0",
+    "@astrojs/vercel": "^11.0.15",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vercel/node": "^24.0.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.3.3"
   }
 }
