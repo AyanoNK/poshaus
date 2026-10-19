@@ -1,43 +1,44 @@
 ---
+import { Image } from "astro:assets";
 import GalleryLayout from "../../layouts/GalleryLayout.astro";
+import bestivalCarrousel from "../../assets/projects/bestival/carrousel.webp";
+import biliCarrousel from "../../assets/projects/bili/carrousel.webp";
 
 export function getStaticPaths() {
-  // get folder names in src/img/projects
   const pages = [
     {
       slug: "bestival",
       title: "Bestival",
+      carrousel: bestivalCarrousel,
+      carrouselAlt: "Bestival festival posters, passes, and artist cards with beast characters",
     },
     {
       slug: "bili",
       title: "Bili",
+      carrousel: biliCarrousel,
+      carrouselAlt: "Bili storybook pages of a curly-haired child playing and celebrating",
     },
   ];
 
   return pages.map((page) => ({
     params: { project: page.slug },
-    props: {
-      ...page,
-      carrousel: `/img/projects/${page.slug}/carrousel.webp`,
-      image: `/img/projects/${page.slug}/square.webp`,
-    },
+    props: page,
   }));
 }
 
-const { title, carrousel } = Astro.props;
+const { title, carrousel, carrouselAlt } = Astro.props;
 ---
 
 <GalleryLayout title={title}>
   <div class="overflow-x-auto whitespace-nowrap w-full">
     <div class="min-w-max text-center">
-      <img
+      <Image
         src={carrousel}
-        srcset={`${carrousel} 120w,
-                 ${carrousel} 200w,
-                 ${carrousel} 300w`}
-        class="h-[35rem] aspect-auto"
-        alt="Loading..."
-        onerror="this.style.visibility='hidden'"
+        alt={carrouselAlt}
+        height={560}
+        densities={[1, 2]}
+        priority
+        class="h-[35rem] w-auto max-w-none"
       />
     </div>
   </div>

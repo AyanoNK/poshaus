@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import BlueWave from "./BlueWave.astro";
+import logo from "../assets/logo.png";
 ---
 
 <div id="header" class="relative flex flex-col">
@@ -7,11 +9,13 @@ import BlueWave from "./BlueWave.astro";
   <div class="relative flex box-border w-full z-10 px-4">
     <div id="header-nav" class="flex items-center justify-center w-full pt-4">
       <a href="/">
-        <img
-          src="/img/logo.png"
-          id="navbar-logo"
-          alt="navbar-logo"
-          class="h-16"
+        <Image
+          src={logo}
+          alt="Poshaus home"
+          height={64}
+          densities={[1, 2]}
+          loading="eager"
+          class="h-16 w-auto"
         />
       </a>
     </div>
