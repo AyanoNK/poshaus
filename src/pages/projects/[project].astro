@@ -8,7 +8,12 @@ export const getStaticPaths = (async () => {
   const projects = await getProjects();
   return projects.flatMap(({ id, data }) =>
     data.gallery
-      ? [{ params: { project: id }, props: { title: data.title, gallery: data.gallery } }]
+      ? [
+          {
+            params: { project: id },
+            props: { title: data.title, gallery: data.gallery },
+          },
+        ]
       : [],
   );
 }) satisfies GetStaticPaths;

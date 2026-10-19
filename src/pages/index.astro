@@ -4,7 +4,6 @@ import Link from "../components/Link.astro";
 import SocialLink from "../components/SocialLink.astro";
 import IllustrationsGrid from "../components/gallery/IllustrationsGrid.astro";
 import { SOCIAL_LINKS } from "../consts";
-
 ---
 
 <IndexLayout>
@@ -27,7 +26,15 @@ import { SOCIAL_LINKS } from "../consts";
     class="flex items-center justify-center min-h-screen w-full"
   >
     <div class="content" id="content">
-      <img src="/svg/logo.svg" alt="Poshaus" id="logo" class="my-8 w-full" fetchpriority="high" width="462" height="113" />
+      <img
+        src="/svg/logo.svg"
+        alt="Poshaus"
+        id="logo"
+        class="my-8 w-full"
+        fetchpriority="high"
+        width="462"
+        height="113"
+      />
       <div id="links">
         <Link href="#illustrations" title="Illustrations" />
         <Link href="/tattoos" title="Tattoo designs" />
@@ -35,15 +42,13 @@ import { SOCIAL_LINKS } from "../consts";
         <Link href="/projects" title="Projects" />
         <Link href="/store" title="Store" target="_blank" />
         <div id="social" class="flex flex-row flex-nowrap justify-between">
-          {
-            SOCIAL_LINKS.map((link) => (
-              <SocialLink
-                href={link.url}
-                svg={`/svg/${link.name}.svg`}
-                alt={link.label}
-              />
-            ))
-          }
+          {SOCIAL_LINKS.map((link) => (
+            <SocialLink
+              href={link.url}
+              svg={`/svg/${link.name}.svg`}
+              alt={link.label}
+            />
+          ))}
         </div>
       </div>
     </div>

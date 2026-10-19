@@ -17,31 +17,29 @@ const { columns } = Astro.props;
 ---
 
 <div class="grid">
-  {
-    columns.map((column, index) => (
-      <a class="column" href={column.link} target="_blank">
-        <div class="logo-container">
-          <Image
-            src={column.logo}
-            alt={column.logoAlt}
-            widths={[320, 640]}
-            sizes="(max-width: 576px) 80vw, (max-width: 768px) 40vw, 27vw"
-            priority={index === 0}
-            class="image"
-          />
-        </div>
-        <div class="concept-container">
-          <Image
-            src={column.concept}
-            alt={column.conceptAlt}
-            widths={[480, 768, 1024]}
-            sizes="(max-width: 576px) 100vw, (max-width: 768px) 50vw, 33vw"
-            class="image"
-          />
-        </div>
-      </a>
-    ))
-  }
+  {columns.map((column, index) => (
+    <a class="column" href={column.link} target="_blank">
+      <div class="logo-container">
+        <Image
+          src={column.logo}
+          alt={column.logoAlt}
+          widths={[320, 640]}
+          sizes="(max-width: 576px) 80vw, (max-width: 768px) 40vw, 27vw"
+          priority={index === 0}
+          class="image"
+        />
+      </div>
+      <div class="concept-container">
+        <Image
+          src={column.concept}
+          alt={column.conceptAlt}
+          widths={[480, 768, 1024]}
+          sizes="(max-width: 576px) 100vw, (max-width: 768px) 50vw, 33vw"
+          class="image"
+        />
+      </div>
+    </a>
+  ))}
 </div>
 <style>
   .grid {

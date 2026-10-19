@@ -5,19 +5,15 @@ import SocialLink from "./SocialLink.astro";
 ---
 
 <div id="footer" class="relative flex flex-col">
-  <div
-    class="relative flex items-center justify-center pt-16 z-10"
-  >
-    {
-      SOCIAL_LINKS.map((link) => (
-        <SocialLink
-          variant="footer"
-          href={link.url}
-          svg={`/svg/${link.name}.svg`}
-          alt={link.label}
-        />
-      ))
-    }
+  <div class="relative flex items-center justify-center pt-16 z-10">
+    {SOCIAL_LINKS.map((link) => (
+      <SocialLink
+        variant="footer"
+        href={link.url}
+        svg={`/svg/${link.name}.svg`}
+        alt={link.label}
+      />
+    ))}
   </div>
   <GreenWave class="absolute -z-10" />
 </div>

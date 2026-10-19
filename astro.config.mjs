@@ -7,7 +7,8 @@ export default defineConfig({
   adapter: vercel(),
   redirects: {
     "/store": "https://everpress.com/profile/poshaus",
-    "/projects/magic_markers": "https://www.youtube.com/@MagicMarkersPro/videos",
+    "/projects/magic_markers":
+      "https://www.youtube.com/@MagicMarkersPro/videos",
   },
   fonts: [
     {

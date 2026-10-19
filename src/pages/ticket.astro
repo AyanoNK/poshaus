@@ -3,26 +3,14 @@ import GalleryLayout from "../layouts/GalleryLayout.astro";
 ---
 
 <GalleryLayout title="Hidden ticket">
-  <div
-    class="ticket group z-10 w-[300px] select-none md:w-[800px]"
-  >
-    <div
-      class="ticket-card relative isolate z-10 overflow-hidden rounded-xl border border-white/20 transition-transform duration-200 ease-out"
-    >
-      <div
-        class="absolute inset-0 z-10 opacity-0 mix-blend-color-dodge transition-opacity duration-300 ease-in-out group-hover:opacity-50"
-      >
-        <div
-          class="absolute inset-0 left-1/2 top-1/2 h-[160%] w-[160%] -translate-x-1/2 -translate-y-1/2 opacity-20 mix-blend-hue ticket-rainbow"
-        >
-        </div><div
-          class="absolute inset-0 left-1/2 top-1/2 h-[160%] w-[160%] -translate-x-1/2 -translate-y-1/2 opacity-50 mix-blend-plus-lighter ticket-metal"
-        >
-        </div><div
-          class="absolute inset-0 mix-blend-overlay blur-xl ticket-glow"
-        >
-        </div>
-      </div><div class="contrast-[1.05]">
+  <div class="ticket group z-10 w-[300px] select-none md:w-[800px]">
+    <div class="ticket-card relative isolate z-10 overflow-hidden rounded-xl border border-white/20 transition-transform duration-200 ease-out">
+      <div class="absolute inset-0 z-10 opacity-0 mix-blend-color-dodge transition-opacity duration-300 ease-in-out group-hover:opacity-50">
+        <div class="absolute inset-0 left-1/2 top-1/2 h-[160%] w-[160%] -translate-x-1/2 -translate-y-1/2 opacity-20 mix-blend-hue ticket-rainbow"></div>
+        <div class="absolute inset-0 left-1/2 top-1/2 h-[160%] w-[160%] -translate-x-1/2 -translate-y-1/2 opacity-50 mix-blend-plus-lighter ticket-metal"></div>
+        <div class="absolute inset-0 mix-blend-overlay blur-xl ticket-glow"></div>
+      </div>
+      <div class="contrast-[1.05]">
         <img
           src="https://remix.run/assets/general-CFnhvhhh.avif"
           width="800"
@@ -31,15 +19,14 @@ import GalleryLayout from "../layouts/GalleryLayout.astro";
           class="relative w-full"
         />
       </div>
-      <div
-        class="absolute bottom-0 left-[35%] z-40 pb-1 pl-2 text-left font-conf-mono text-[8px] text-white md:pb-4 md:pl-6 md:text-base"
-      >
+      <div class="absolute bottom-0 left-[35%] z-40 pb-1 pl-2 text-left font-conf-mono text-[8px] text-white md:pb-4 md:pl-6 md:text-base">
         <div class="flex flex-col gap-0 uppercase md:gap-2">
-          <p>october 10 2025</p><div><p>your name</p><p>your company</p></div><p
-            class="uppercase text-[#36d3ff]"
-          >
-            Early Bird
-          </p>
+          <p>october 10 2025</p>
+          <div>
+            <p>your name</p>
+            <p>your company</p>
+          </div>
+          <p class="uppercase text-[#36d3ff]">Early Bird</p>
         </div>
       </div>
     </div>
